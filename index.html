@@ -27,6 +27,7 @@
   .pps { font-size:12px; color:var(--muted); }
   .badge { font-size:11px; background:var(--chip); color:var(--muted); border-radius:6px; padding:2px 7px; }
   .badge.warn { color:#f59e0b; }
+  .badge.src { background:transparent; border:1px solid var(--chip); color:var(--muted); }
   .title { font-size:15px; font-weight:600; margin-top:3px; }
   .meta { color:var(--muted); font-size:13px; margin-top:3px; }
   footer { color:var(--muted); font-size:12px; margin-top:24px; text-align:center; }
@@ -34,7 +35,7 @@
 </head>
 <body>
   <h1>🏠 SF rentals · 2+ bd · 2+ ba</h1>
-  <div class="sub">125 matching rentals · $1,500–$45,000 · updated Jun 19, 2026 at 8:50 PM PDT</div>
+  <div class="sub">32 matching rentals · $1,400–$18,000 · updated Jun 19, 2026 at 10:15 PM PDT</div>
   <div class="controls">
     <select id="sort">
       <option value="rent-asc">Rent ↑</option>
@@ -44,15 +45,43 @@
       <option value="beds-desc">Beds ↓</option>
       <option value="posted-desc">Newest</option>
     </select>
-    <select id="beds"><option value="">Any beds</option><option value="2">2+ bd</option><option value="3">3+ bd</option><option value="4">4+ bd</option><option value="5">5+ bd</option><option value="6">6+ bd</option></select>
-    <select id="baths"><option value="">Any baths</option><option value="2.0">2+ ba</option><option value="2.5">2.5+ ba</option><option value="3.0">3+ ba</option><option value="3.5">3.5+ ba</option><option value="4.0">4+ ba</option><option value="4.5">4.5+ ba</option><option value="5.0">5+ ba</option></select>
-    <select id="nh"><option value="">All neighborhoods</option><option value="__out">Outside SF only</option><option value="Bayview Hunters Point">Bayview Hunters Point</option><option value="Bernal Heights">Bernal Heights</option><option value="Castro/Upper Market">Castro/Upper Market</option><option value="Excelsior">Excelsior</option><option value="Financial District/South Beach">Financial District/South Beach</option><option value="Glen Park">Glen Park</option><option value="Haight Ashbury">Haight Ashbury</option><option value="Hayes Valley">Hayes Valley</option><option value="Inner Richmond">Inner Richmond</option><option value="Japantown">Japantown</option><option value="Lakeshore">Lakeshore</option><option value="Lone Mountain/USF">Lone Mountain/USF</option><option value="Marina">Marina</option><option value="Mission">Mission</option><option value="Mission Bay">Mission Bay</option><option value="Nob Hill">Nob Hill</option><option value="Noe Valley">Noe Valley</option><option value="North Beach">North Beach</option><option value="Outer Mission">Outer Mission</option><option value="Outer Richmond">Outer Richmond</option><option value="Pacific Heights">Pacific Heights</option><option value="Potrero Hill">Potrero Hill</option><option value="Presidio">Presidio</option><option value="Russian Hill">Russian Hill</option><option value="Seacliff">Seacliff</option><option value="South of Market">South of Market</option><option value="Sunset/Parkside">Sunset/Parkside</option><option value="Tenderloin">Tenderloin</option><option value="Twin Peaks">Twin Peaks</option><option value="West of Twin Peaks">West of Twin Peaks</option><option value="Western Addition">Western Addition</option></select>
+    <select id="beds"><option value="">Any beds</option><option value="2">2+ bd</option><option value="3">3+ bd</option><option value="4">4+ bd</option><option value="5">5+ bd</option></select>
+    <select id="baths"><option value="">Any baths</option><option value="2.0">2+ ba</option><option value="3.0">3+ ba</option><option value="4.0">4+ ba</option></select>
+    <select id="nh"><option value="">All neighborhoods</option><option value="Bayview Hunters Point">Bayview Hunters Point</option><option value="Castro/Upper Market">Castro/Upper Market</option><option value="Excelsior">Excelsior</option><option value="Financial District/South Beach">Financial District/South Beach</option><option value="Hayes Valley">Hayes Valley</option><option value="Lone Mountain/USF">Lone Mountain/USF</option><option value="Mission">Mission</option><option value="Mission Bay">Mission Bay</option><option value="Nob Hill">Nob Hill</option><option value="Oceanview/Merced/Ingleside">Oceanview/Merced/Ingleside</option><option value="Outer Richmond">Outer Richmond</option><option value="Pacific Heights">Pacific Heights</option><option value="Potrero Hill">Potrero Hill</option><option value="Russian Hill">Russian Hill</option><option value="Seacliff">Seacliff</option><option value="South of Market">South of Market</option><option value="Sunset/Parkside">Sunset/Parkside</option></select>
     <input type="number" id="maxrent" placeholder="max rent $" step="100">
-    <label><input type="checkbox" id="hideout"> hide outside SF</label>
+    <input type="checkbox" id="hideout" hidden>
     <input type="search" id="q" placeholder="search title / area…">
   </div>
   <div class="count" id="count"></div>
   <div id="list">
+    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-newly-remodeled-bed-bath/7942130860.html" target="_blank" rel="noopener"
+       data-rent="1400"
+       data-sqft=""
+       data-pps=""
+       data-beds="2"
+       data-baths="2.0"
+       data-posted="2026-06-19"
+       data-nh="South of Market"
+       data-out="0"
+       data-text="newly remodeled 2 bed/2 bath ground floor apartment 451 tehama st, # a 451 tehama st, # a · south of market apartment">
+      <div class="row1"><span class="price">$1,400</span><span class="badge src">Craigslist</span><span class="badge">apartment</span></div>
+      <div class="title">Newly remodeled 2 bed/2 bath ground floor apartment</div>
+      <div class="meta">2 bd · 2 ba · 451 Tehama St, # A · South of Market · 2026-06-19</div>
+    </a>
+    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-bedrooms2-bath-house/7942130428.html" target="_blank" rel="noopener"
+       data-rent="1450"
+       data-sqft="1250"
+       data-pps="1.16"
+       data-beds="3"
+       data-baths="2.0"
+       data-posted="2026-06-19"
+       data-nh="Oceanview/Merced/Ingleside"
+       data-out="0"
+       data-text="$1450/ 3 bedrooms–2 bath house 101 beverly st 101 beverly st · oceanview/merced/ingleside house">
+      <div class="row1"><span class="price">$1,450</span><span class="pps">$1.16/ft²</span><span class="badge src">Craigslist</span><span class="badge">house</span></div>
+      <div class="title">$1450/ 3 Bedrooms–2 Bath House</div>
+      <div class="meta">3 bd · 2 ba · 1,250 ft² · 101 Beverly St · Oceanview/Merced/Ingleside · 2026-06-19</div>
+    </a>
     <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-bedrooms2-bath-house/7942122170.html" target="_blank" rel="noopener"
        data-rent="1500"
        data-sqft="1175"
@@ -63,9 +92,23 @@
        data-nh="Excelsior"
        data-out="0"
        data-text="$1500/ 3 bedrooms–2 bath house 236 chicago way 236 chicago way · excelsior house">
-      <div class="row1"><span class="price">$1,500</span><span class="pps">$1.28/ft²</span><span class="badge">house</span></div>
+      <div class="row1"><span class="price">$1,500</span><span class="pps">$1.28/ft²</span><span class="badge src">Craigslist</span><span class="badge">house</span></div>
       <div class="title">$1500/ 3 Bedrooms–2 Bath House</div>
       <div class="meta">3 bd · 2 ba · 1,175 ft² · 236 Chicago Way · Excelsior · 2026-06-19</div>
+    </a>
+    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-bedrooms3-bath-house/7942129362.html" target="_blank" rel="noopener"
+       data-rent="1550"
+       data-sqft="1663"
+       data-pps="0.93"
+       data-beds="3"
+       data-baths="3.0"
+       data-posted="2026-06-19"
+       data-nh="Excelsior"
+       data-out="0"
+       data-text="$1550/ 3 bedrooms–3 bath house 115 concord st 115 concord st · excelsior house">
+      <div class="row1"><span class="price">$1,550</span><span class="pps">$0.93/ft²</span><span class="badge src">Craigslist</span><span class="badge">house</span></div>
+      <div class="title">$1550/ 3 Bedrooms–3 Bath House</div>
+      <div class="meta">3 bd · 3 ba · 1,663 ft² · 115 Concord St · Excelsior · 2026-06-19</div>
     </a>
     <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-spacious-bed-bath-home/7942117128.html" target="_blank" rel="noopener"
        data-rent="1680"
@@ -77,107 +120,23 @@
        data-nh="Mission"
        data-out="0"
        data-text="spacious 2 bed, 2 bath home with fenced yard 2110 bryant st 2110 bryant st · mission apartment">
-      <div class="row1"><span class="price">$1,680</span><span class="pps">$1.74/ft²</span><span class="badge">apartment</span></div>
+      <div class="row1"><span class="price">$1,680</span><span class="pps">$1.74/ft²</span><span class="badge src">Craigslist</span><span class="badge">apartment</span></div>
       <div class="title">Spacious 2 Bed, 2 Bath Home with Fenced Yard</div>
       <div class="meta">2 bd · 2 ba · 968 ft² · 2110 Bryant St · Mission · 2026-06-19</div>
     </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-updated-3br-rental-with/7942108214.html" target="_blank" rel="noopener"
-       data-rent="1980"
-       data-sqft="1600"
-       data-pps="1.24"
-       data-beds="3"
+    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-spacious-2br-apartment/7942132170.html" target="_blank" rel="noopener"
+       data-rent="1780"
+       data-sqft="984"
+       data-pps="1.81"
+       data-beds="2"
        data-baths="2.0"
        data-posted="2026-06-19"
        data-nh="Lone Mountain/USF"
        data-out="0"
-       data-text="updated 3br rental with dishwasher, washer &amp; dryer 46 atalaya ter 46 atalaya ter · lone mountain/usf apartment">
-      <div class="row1"><span class="price">$1,980</span><span class="pps">$1.24/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">Updated 3BR Rental with Dishwasher, Washer &amp; Dryer</div>
-      <div class="meta">3 bd · 2 ba · 1,600 ft² · 46 Atalaya Ter · Lone Mountain/USF · 2026-06-19</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/dixon-now-available-affordable-farm/7937456677.html" target="_blank" rel="noopener"
-       data-rent="2079"
-       data-sqft=""
-       data-pps=""
-       data-beds="3"
-       data-baths="2.0"
-       data-posted="2026-05-29"
-       data-nh=""
-       data-out="1"
-       data-text="now available - affordable farm labor housing 1830 gold street near west cherry street outside sf apartment">
-      <div class="row1"><span class="price">$2,079</span><span class="badge">apartment</span><span class="badge warn">outside SF</span></div>
-      <div class="title">NOW AVAILABLE - Affordable FARM LABOR HOUSING</div>
-      <div class="meta">3 bd · 2 ba · Outside SF · 2026-05-29</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/hercules-affordable/7941646210.html" target="_blank" rel="noopener"
-       data-rent="2157"
-       data-sqft="828"
-       data-pps="2.61"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-17"
-       data-nh=""
-       data-out="1"
-       data-text="affordable! 1231 willow avenue near 1231 willow avenue outside sf apartment">
-      <div class="row1"><span class="price">$2,157</span><span class="pps">$2.61/ft²</span><span class="badge">apartment</span><span class="badge warn">outside SF</span></div>
-      <div class="title">Affordable!</div>
-      <div class="meta">2 bd · 2 ba · 828 ft² · Outside SF · 2026-06-17</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-very-spacious-2br-2ba/7941539205.html" target="_blank" rel="noopener"
-       data-rent="2875"
-       data-sqft="1131"
-       data-pps="2.54"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-17"
-       data-nh="Lakeshore"
-       data-out="0"
-       data-text="very spacious 2br/2ba park merced laundry on site pets ok 100 font 100 font · lakeshore apartment">
-      <div class="row1"><span class="price">$2,875</span><span class="pps">$2.54/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">Very Spacious 2BR/2BA Park Merced Laundry On Site Pets OK</div>
-      <div class="meta">2 bd · 2 ba · 1,131 ft² · 100 Font · Lakeshore · 2026-06-17</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-high-rise-bedroom/7941366289.html" target="_blank" rel="noopener"
-       data-rent="2999"
-       data-sqft="1093"
-       data-pps="2.74"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-16"
-       data-nh="Lakeshore"
-       data-out="0"
-       data-text="high-rise 2 bedroom apartment with views! unit fo1506h 150 font boulevard 150 font boulevard · lakeshore apartment">
-      <div class="row1"><span class="price">$2,999</span><span class="pps">$2.74/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">High-Rise 2 Bedroom Apartment with Views! Unit FO1506H</div>
-      <div class="meta">2 bd · 2 ba · 1,093 ft² · 150 FONT BOULEVARD · Lakeshore · 2026-06-16</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-2bed-2bath-in-outer/7942021238.html" target="_blank" rel="noopener"
-       data-rent="3000"
-       data-sqft=""
-       data-pps=""
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-19"
-       data-nh="Outer Mission"
-       data-out="0"
-       data-text="2bed 2bath in outer mission, 2.5 blocks to balboa park bart/muni niagara ave near delano ave niagara ave near delano ave · outer mission apartment">
-      <div class="row1"><span class="price">$3,000</span><span class="badge">apartment</span></div>
-      <div class="title">2bed 2bath in Outer Mission, 2.5 blocks to Balboa Park BART/Muni</div>
-      <div class="meta">2 bd · 2 ba · Niagara Ave near Delano Ave · Outer Mission · 2026-06-19</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-jose-this-house-is-ready-to-be/7941754300.html" target="_blank" rel="noopener"
-       data-rent="3200"
-       data-sqft="1402"
-       data-pps="2.28"
-       data-beds="3"
-       data-baths="2.0"
-       data-posted="2026-06-18"
-       data-nh=""
-       data-out="1"
-       data-text="this house is ready to be yours for rent 3686 lightfare ct outside sf house">
-      <div class="row1"><span class="price">$3,200</span><span class="pps">$2.28/ft²</span><span class="badge">house</span><span class="badge warn">outside SF</span></div>
-      <div class="title">This house is ready to be yours for rent</div>
-      <div class="meta">3 bd · 2 ba · 1,402 ft² · Outside SF · 2026-06-18</div>
+       data-text="spacious 2br apartment with private patio &amp; parking included 2001 mcallister st, apt 145 2001 mcallister st, apt 145 · lone mountain/usf apartment">
+      <div class="row1"><span class="price">$1,780</span><span class="pps">$1.81/ft²</span><span class="badge src">Craigslist</span><span class="badge">apartment</span></div>
+      <div class="title">Spacious 2BR Apartment with Private Patio &amp; Parking Included</div>
+      <div class="meta">2 bd · 2 ba · 984 ft² · 2001 McAllister St, APT 145 · Lone Mountain/USF · 2026-06-19</div>
     </a>
     <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-pacific-ave-2br-2ba/7942122985.html" target="_blank" rel="noopener"
        data-rent="3465"
@@ -189,7 +148,7 @@
        data-nh="Pacific Heights"
        data-out="0"
        data-text="pacific ave 2br/2ba + 1 parking condo pacific ave pacific ave · pacific heights condo">
-      <div class="row1"><span class="price">$3,465</span><span class="badge">condo</span></div>
+      <div class="row1"><span class="price">$3,465</span><span class="badge src">Craigslist</span><span class="badge">condo</span></div>
       <div class="title">Pacific Ave 2BR/2BA + 1 Parking Condo</div>
       <div class="meta">2 bd · 2 ba · Pacific Ave · Pacific Heights · 2026-06-19</div>
     </a>
@@ -203,387 +162,79 @@
        data-nh="Mission Bay"
        data-out="0"
        data-text="$3685 / 2br - 2br 2--------ba house king st king st · mission bay house">
-      <div class="row1"><span class="price">$3,685</span><span class="badge">house</span></div>
+      <div class="row1"><span class="price">$3,685</span><span class="badge src">Craigslist</span><span class="badge">house</span></div>
       <div class="title">$3685 / 2br - 2BR 2--------BA House</div>
       <div class="meta">2 bd · 2 ba · King St · Mission Bay · 2026-06-19</div>
     </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/daly-city-bed-bath-high-rise-tower/7941366439.html" target="_blank" rel="noopener"
-       data-rent="3795"
-       data-sqft="1083"
-       data-pps="3.5"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-16"
-       data-nh="Lakeshore"
-       data-out="0"
-       data-text="2 bed, 2 bath high-rise tower apartment! unit ch0503j 50 chumasero drive apartment 3j 50 chumasero drive apartment 3j · lakeshore apartment">
-      <div class="row1"><span class="price">$3,795</span><span class="pps">$3.50/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">2 Bed, 2 Bath High-Rise Tower Apartment! Unit CH0503J</div>
-      <div class="meta">2 bd · 2 ba · 1,083 ft² · 50 CHUMASERO DRIVE APARTMENT 3J · Lakeshore · 2026-06-16</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-well-maintained-bedroom/7942100388.html" target="_blank" rel="noopener"
-       data-rent="3800"
-       data-sqft=""
-       data-pps=""
-       data-beds="3"
-       data-baths="4.0"
-       data-posted="2026-06-19"
-       data-nh="Sunset/Parkside"
-       data-out="0"
-       data-text="well-maintained 3-bedroom, 4-bath home offering a bright, practical .. sunset/parkside apartment">
-      <div class="row1"><span class="price">$3,800</span><span class="badge">apartment</span></div>
-      <div class="title">Well-maintained 3-bedroom, 4-bath home offering a bright, practical ..</div>
-      <div class="meta">3 bd · 4 ba · Sunset/Parkside · 2026-06-19</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-high-rise-bedroom/7941366572.html" target="_blank" rel="noopener"
-       data-rent="3800"
-       data-sqft="1083"
-       data-pps="3.51"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-16"
-       data-nh="Lakeshore"
-       data-out="0"
-       data-text="high-rise 2 bedroom apartment w/ courtyard views! unit se35512d 355 serrano drive apartment 12d 355 serrano drive apartment 12d · lakeshore apartment">
-      <div class="row1"><span class="price">$3,800</span><span class="pps">$3.51/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">High-Rise 2 Bedroom Apartment w/ Courtyard Views! Unit SE35512D</div>
-      <div class="meta">2 bd · 2 ba · 1,083 ft² · 355 SERRANO DRIVE APARTMENT 12D · Lakeshore · 2026-06-16</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/livermore-livermore-jensen-home-for/7942043582.html" target="_blank" rel="noopener"
-       data-rent="3850"
-       data-sqft="1400"
-       data-pps="2.75"
-       data-beds="3"
-       data-baths="2.0"
-       data-posted="2026-06-19"
-       data-nh=""
-       data-out="1"
-       data-text="livermore jensen home for rent (including utilities) 3882 yale way outside sf apartment">
-      <div class="row1"><span class="price">$3,850</span><span class="pps">$2.75/ft²</span><span class="badge">apartment</span><span class="badge warn">outside SF</span></div>
-      <div class="title">Livermore Jensen Home for Rent (Including Utilities)</div>
-      <div class="meta">3 bd · 2 ba · 1,400 ft² · Outside SF · 2026-06-19</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-high-rise-bedroom/7941366720.html" target="_blank" rel="noopener"
-       data-rent="3895"
-       data-sqft="1093"
-       data-pps="3.56"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-16"
-       data-nh="Lakeshore"
-       data-out="0"
-       data-text="high-rise 2 bedroom apartment with views! unit cm12510e 125 cambon drive 125 cambon drive · lakeshore apartment">
-      <div class="row1"><span class="price">$3,895</span><span class="pps">$3.56/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">High-Rise 2 Bedroom Apartment with Views! Unit CM12510E</div>
-      <div class="meta">2 bd · 2 ba · 1,093 ft² · 125 CAMBON DRIVE · Lakeshore · 2026-06-16</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-spacious-single-family/7942106291.html" target="_blank" rel="noopener"
-       data-rent="4000"
-       data-sqft=""
-       data-pps=""
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-19"
-       data-nh="Noe Valley"
-       data-out="0"
-       data-text="spacious single-family home in quiet midtown terrace noe valley apartment">
-      <div class="row1"><span class="price">$4,000</span><span class="badge">apartment</span></div>
-      <div class="title">Spacious Single-Family Home in Quiet Midtown Terrace</div>
-      <div class="meta">2 bd · 2 ba · Noe Valley · 2026-06-19</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/mill-valley-hardwood-floors-brick-patio/7941386275.html" target="_blank" rel="noopener"
-       data-rent="4169"
-       data-sqft="1071"
-       data-pps="3.89"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-16"
-       data-nh=""
-       data-out="1"
-       data-text="hardwood floors &amp; brick patio 2br-2ba on elm avenue 154 elm avenue outside sf apartment">
-      <div class="row1"><span class="price">$4,169</span><span class="pps">$3.89/ft²</span><span class="badge">apartment</span><span class="badge warn">outside SF</span></div>
-      <div class="title">Hardwood Floors &amp; Brick Patio 2br-2ba on Elm Avenue</div>
-      <div class="meta">2 bd · 2 ba · 1,071 ft² · Outside SF · 2026-06-16</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-stunning-penthouse-loft/7941868371.html" target="_blank" rel="noopener"
-       data-rent="4250"
-       data-sqft="975"
-       data-pps="4.36"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-18"
-       data-nh="South of Market"
-       data-out="0"
-       data-text="stunning penthouse loft - skylight, deck, views &amp; great location! pics 855 folsom near 4th street 855 folsom near 4th street · south of market loft">
-      <div class="row1"><span class="price">$4,250</span><span class="pps">$4.36/ft²</span><span class="badge">loft</span></div>
-      <div class="title">Stunning Penthouse Loft - Skylight, Deck, Views &amp; GREAT LOCATION! pics</div>
-      <div class="meta">2 bd · 2 ba · 975 ft² · 855 Folsom near 4th Street · South of Market · 2026-06-18</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-spacious-upstairs-full/7941705673.html" target="_blank" rel="noopener"
-       data-rent="4280"
-       data-sqft=""
-       data-pps=""
-       data-beds="4"
-       data-baths="2.0"
-       data-posted="2026-06-18"
-       data-nh="Bayview Hunters Point"
-       data-out="0"
-       data-text="spacious upstairs full-floor rental featuring 4 bedrooms and 2 baths 1843 egbert avenue near bayshore 1843 egbert avenue near bayshore · bayview hunters point apartment">
-      <div class="row1"><span class="price">$4,280</span><span class="badge">apartment</span></div>
-      <div class="title">Spacious upstairs full-floor rental featuring 4 bedrooms and 2 baths</div>
-      <div class="meta">4 bd · 2 ba · 1843 Egbert Avenue near Bayshore · Bayview Hunters Point · 2026-06-18</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-brand-new-remodeled/7937534187.html" target="_blank" rel="noopener"
-       data-rent="4395"
-       data-sqft=""
-       data-pps=""
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-05-29"
-       data-nh="South of Market"
-       data-out="0"
-       data-text="brand new remodeled 2 bedrooms available! 615 minna st 615 minna st · south of market apartment">
-      <div class="row1"><span class="price">$4,395</span><span class="badge">apartment</span></div>
-      <div class="title">Brand new Remodeled 2 Bedrooms available!</div>
-      <div class="meta">2 bd · 2 ba · 615 Minna St · South of Market · 2026-05-29</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-3bedroom-bath-in/7941595194.html" target="_blank" rel="noopener"
-       data-rent="4500"
-       data-sqft=""
-       data-pps=""
-       data-beds="3"
-       data-baths="2.0"
-       data-posted="2026-06-17"
-       data-nh="Outer Mission"
-       data-out="0"
-       data-text="3bedroom 2 bath in oceanview area. outer mission apartment">
-      <div class="row1"><span class="price">$4,500</span><span class="badge">apartment</span></div>
-      <div class="title">3Bedroom 2 Bath in oceanview area.</div>
-      <div class="meta">3 bd · 2 ba · Outer Mission · 2026-06-17</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-tesla-rental-available-on/7941773335.html" target="_blank" rel="noopener"
-       data-rent="4543"
-       data-sqft="883"
-       data-pps="5.14"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-18"
-       data-nh="Tenderloin"
-       data-out="0"
-       data-text="tesla rental available on site, dishwasher, microwave 50 jones st. near golden gate avenue 50 jones st. near golden gate avenue · tenderloin apartment">
-      <div class="row1"><span class="price">$4,543</span><span class="pps">$5.14/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">Tesla rental available on site, Dishwasher, Microwave</div>
-      <div class="meta">2 bd · 2 ba · 883 ft² · 50 Jones St. near Golden Gate Avenue · Tenderloin · 2026-06-18</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-freshly-remodeled-and/7942101838.html" target="_blank" rel="noopener"
-       data-rent="4600"
-       data-sqft=""
-       data-pps=""
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-19"
-       data-nh="Sunset/Parkside"
-       data-out="0"
-       data-text="**freshly remodeled and light-filled 2-bedroom, 2-bath home*** sunset/parkside apartment">
-      <div class="row1"><span class="price">$4,600</span><span class="badge">apartment</span></div>
-      <div class="title">**Freshly remodeled and light-filled 2-bedroom, 2-bath home***</div>
-      <div class="meta">2 bd · 2 ba · Sunset/Parkside · 2026-06-19</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/orinda-sunroom-bed-bath-on-overhill-rd/7941440065.html" target="_blank" rel="noopener"
-       data-rent="4643"
-       data-sqft="1710"
-       data-pps="2.72"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-16"
-       data-nh=""
-       data-out="1"
-       data-text="sunroom 2 bed 2 bath on overhill rd 305 overhill rd outside sf apartment">
-      <div class="row1"><span class="price">$4,643</span><span class="pps">$2.72/ft²</span><span class="badge">apartment</span><span class="badge warn">outside SF</span></div>
-      <div class="title">Sunroom 2 bed 2 bath on Overhill Rd</div>
-      <div class="meta">2 bd · 2 ba · 1,710 ft² · Outside SF · 2026-06-16</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-exclusive-br-living-roof/7941983393.html" target="_blank" rel="noopener"
-       data-rent="4710"
-       data-sqft="843"
-       data-pps="5.59"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-19"
-       data-nh="Outer Mission"
-       data-out="0"
-       data-text="exclusive 2 br living-roof decks &amp; real-time transit access 99 ocean ave near alemany blvd 99 ocean ave near alemany blvd · outer mission apartment">
-      <div class="row1"><span class="price">$4,710</span><span class="pps">$5.59/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">Exclusive 2 BR Living-Roof Decks &amp; Real-Time Transit Access</div>
-      <div class="meta">2 bd · 2 ba · 843 ft² · 99 Ocean Ave near Alemany Blvd · Outer Mission · 2026-06-19</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-modern-two-bedroom-with/7937551495.html" target="_blank" rel="noopener"
-       data-rent="4775"
-       data-sqft="855"
-       data-pps="5.58"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-05-29"
-       data-nh="South of Market"
-       data-out="0"
-       data-text="modern two bedroom with in-unit w/d @ ava 55 55 9th street 55 9th street · south of market apartment">
-      <div class="row1"><span class="price">$4,775</span><span class="pps">$5.58/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">Modern Two Bedroom with in-unit w/d @ AVA 55</div>
-      <div class="meta">2 bd · 2 ba · 855 ft² · 55 9th Street · South of Market · 2026-05-29</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-spacious-inner-sunset-2br/7940948196.html" target="_blank" rel="noopener"
-       data-rent="4895"
-       data-sqft=""
-       data-pps=""
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-14"
-       data-nh="Sunset/Parkside"
-       data-out="0"
-       data-text="spacious inner sunset 2br/2ba w/ garage parking available! 206 judah street unit #203 206 judah street unit #203 · sunset/parkside apartment">
-      <div class="row1"><span class="price">$4,895</span><span class="badge">apartment</span></div>
-      <div class="title">Spacious Inner Sunset 2BR/2BA w/ Garage Parking Available!</div>
-      <div class="meta">2 bd · 2 ba · 206 Judah Street Unit #203 · Sunset/Parkside · 2026-06-14</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-brand-new-garden/7941871080.html" target="_blank" rel="noopener"
-       data-rent="4995"
-       data-sqft=""
-       data-pps=""
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-18"
-       data-nh="Outer Richmond"
-       data-out="0"
-       data-text="brand new garden  apartment - laundry and shared backyard ~ j.wavro 17th avenue near lake street 17th avenue near lake street · outer richmond apartment">
-      <div class="row1"><span class="price">$4,995</span><span class="badge">apartment</span></div>
-      <div class="title">Brand New Garden  Apartment - Laundry and Shared backyard ~ J.Wavro</div>
-      <div class="meta">2 bd · 2 ba · 17th Avenue near Lake Street · Outer Richmond · 2026-06-18</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-large-modern-flat-air/7941878347.html" target="_blank" rel="noopener"
-       data-rent="5000"
-       data-sqft="1291"
-       data-pps="3.87"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-18"
-       data-nh="Excelsior"
-       data-out="0"
-       data-text="large modern flat w/ air conditioning, parking, and storage 2 russia ave. near mission st. 2 russia ave. near mission st. · excelsior flat">
-      <div class="row1"><span class="price">$5,000</span><span class="pps">$3.87/ft²</span><span class="badge">flat</span></div>
-      <div class="title">Large Modern Flat w/ Air Conditioning, Parking, and Storage</div>
-      <div class="meta">2 bd · 2 ba · 1,291 ft² · 2 Russia Ave. near Mission St. · Excelsior · 2026-06-18</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-captivating-br-ba-onsite/7941668634.html" target="_blank" rel="noopener"
-       data-rent="5087"
-       data-sqft="843"
-       data-pps="6.03"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-17"
-       data-nh="Outer Mission"
-       data-out="0"
-       data-text="captivating 2 br/2 ba-onsite childcare, pet play area, more 99 ocean ave near alemany blvd 99 ocean ave near alemany blvd · outer mission apartment">
-      <div class="row1"><span class="price">$5,087</span><span class="pps">$6.03/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">Captivating 2 BR/2 BA-Onsite Childcare, Pet Play Area, More</div>
-      <div class="meta">2 bd · 2 ba · 843 ft² · 99 Ocean Ave near Alemany Blvd · Outer Mission · 2026-06-17</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-on-site-management/7939931159.html" target="_blank" rel="noopener"
-       data-rent="5400"
-       data-sqft="984"
-       data-pps="5.49"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-09"
-       data-nh="South of Market"
-       data-out="0"
-       data-text="on-site management, washers &amp; dryers, resident lounge 923 folsom street 923 folsom street · south of market apartment">
-      <div class="row1"><span class="price">$5,400</span><span class="pps">$5.49/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">On-Site Management, Washers &amp; dryers, Resident Lounge</div>
-      <div class="meta">2 bd · 2 ba · 984 ft² · 923 Folsom Street · South of Market · 2026-06-09</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-br-ba-spacious-view/7940166080.html" target="_blank" rel="noopener"
-       data-rent="5500"
-       data-sqft="1500"
-       data-pps="3.67"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-10"
-       data-nh="Noe Valley"
-       data-out="0"
-       data-text="2-br/2-ba spacious view apartment noe valley apartment">
-      <div class="row1"><span class="price">$5,500</span><span class="pps">$3.67/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">2-BR/2-BA Spacious View Apartment</div>
-      <div class="meta">2 bd · 2 ba · 1,500 ft² · Noe Valley · 2026-06-10</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-epic-rea-spacious-live/7941596938.html" target="_blank" rel="noopener"
-       data-rent="5500"
-       data-sqft="1782"
-       data-pps="3.09"
-       data-beds="2"
-       data-baths="2.5"
-       data-posted="2026-06-17"
-       data-nh="South of Market"
-       data-out="0"
-       data-text="epic rea: spacious live/work loft in soma with rooftop views 701 minna street near 8th street 701 minna street near 8th street · south of market loft">
-      <div class="row1"><span class="price">$5,500</span><span class="pps">$3.09/ft²</span><span class="badge">loft</span></div>
-      <div class="title">EPIC REA: Spacious Live/Work Loft in SOMA with Rooftop Views</div>
-      <div class="meta">2 bd · 2.5 ba · 1,782 ft² · 701 Minna Street near 8th Street · South of Market · 2026-06-17</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-tmlp-12-mo-hardwood/7942103384.html" target="_blank" rel="noopener"
-       data-rent="5512"
-       data-sqft="1630"
-       data-pps="3.38"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-19"
-       data-nh="Bayview Hunters Point"
-       data-out="0"
-       data-text="tmlp 12-mo. | hardwood floors, coffee bar, in select apartment homes, 10 ft ceil 301 executive park blvd. near sandpiper cove 301 executive park blvd. near sandpiper cove · bayview hunters point apartment">
-      <div class="row1"><span class="price">$5,512</span><span class="pps">$3.38/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">TMLP 12-mo. | Hardwood Floors, Coffee Bar, In Select Apartment Homes, 10 Ft Ceil</div>
-      <div class="meta">2 bd · 2 ba · 1,630 ft² · 301 Executive Park Blvd. near Sandpiper Cove · Bayview Hunters Point · 2026-06-19</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-upgrade-your-life-rare-br/7942082213.html" target="_blank" rel="noopener"
-       data-rent="5525"
-       data-sqft="890"
-       data-pps="6.21"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-19"
-       data-nh="Western Addition"
-       data-out="0"
-       data-text="upgrade your life-rare 2 br bliss w/ amazing outdoor spaces 1475 fillmore street near ofarrell 1475 fillmore street near ofarrell · western addition apartment">
-      <div class="row1"><span class="price">$5,525</span><span class="pps">$6.21/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">Upgrade Your Life-Rare 2 BR Bliss w/ Amazing Outdoor Spaces</div>
-      <div class="meta">2 bd · 2 ba · 890 ft² · 1475 Fillmore Street near OFarrell · Western Addition · 2026-06-19</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-3d-virtual-tour-br-25-ba/7941248005.html" target="_blank" rel="noopener"
-       data-rent="5600"
-       data-sqft="1437"
-       data-pps="3.9"
-       data-beds="3"
-       data-baths="2.5"
-       data-posted="2026-06-15"
-       data-nh="Bayview Hunters Point"
-       data-out="0"
-       data-text="3d virtual tour - 3 br, 2.5 ba townhouse 1,437 sq. ft. - 2-car garage 298 coleman street 298 coleman street · bayview hunters point townhouse">
-      <div class="row1"><span class="price">$5,600</span><span class="pps">$3.90/ft²</span><span class="badge">townhouse</span></div>
-      <div class="title">3D Virtual Tour - 3 BR, 2.5 BA Townhouse 1,437 Sq. Ft. - 2-Car Garage</div>
-      <div class="meta">3 bd · 2.5 ba · 1,437 ft² · 298 Coleman Street · Bayview Hunters Point · 2026-06-15</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-large-bright-remodeled/7940409164.html" target="_blank" rel="noopener"
-       data-rent="5600"
+    <a class="card" href="https://www.zillow.com/homedetails/0-Quesada-Ave-San-Francisco-CA-94124/2071951555_zpid/" target="_blank" rel="noopener"
+       data-rent="4200"
        data-sqft="1200"
-       data-pps="4.67"
+       data-pps="3.5"
+       data-beds="2.0"
+       data-baths="2.0"
+       data-posted=""
+       data-nh="Bayview Hunters Point"
+       data-out="0"
+       data-text="0 quesada ave 0 quesada ave 0 quesada ave · bayview hunters point house">
+      <div class="row1"><span class="price">$4,200</span><span class="pps">$3.50/ft²</span><span class="badge src">Zillow</span><span class="badge">house</span></div>
+      <div class="title">0 Quesada Ave</div>
+      <div class="meta">2 bd · 2 ba · 1,200 ft² · 0 Quesada Ave · Bayview Hunters Point</div>
+    </a>
+    <a class="card" href="https://www.zillow.com/homedetails/2393-25th-Ave-San-Francisco-CA-94116/2129847407_zpid/" target="_blank" rel="noopener"
+       data-rent="4300"
+       data-sqft=""
+       data-pps=""
+       data-beds="4.0"
+       data-baths="3.0"
+       data-posted=""
+       data-nh="Sunset/Parkside"
+       data-out="0"
+       data-text="2393 25th ave 2393 25th ave 2393 25th ave · sunset/parkside apartment">
+      <div class="row1"><span class="price">$4,300</span><span class="badge src">Zillow</span><span class="badge">apartment</span></div>
+      <div class="title">2393 25th Ave</div>
+      <div class="meta">4 bd · 3 ba · 2393 25th Ave · Sunset/Parkside</div>
+    </a>
+    <a class="card" href="https://www.zillow.com/homedetails/451-Tehama-St-A-San-Francisco-CA-94103/2101931567_zpid/" target="_blank" rel="noopener"
+       data-rent="4495"
+       data-sqft=""
+       data-pps=""
+       data-beds="2.0"
+       data-baths="2.0"
+       data-posted=""
+       data-nh="South of Market"
+       data-out="0"
+       data-text="451 tehama st #a 451 tehama st #a 451 tehama st #a · south of market apartment">
+      <div class="row1"><span class="price">$4,495</span><span class="badge src">Zillow</span><span class="badge">apartment</span></div>
+      <div class="title">451 Tehama St #A</div>
+      <div class="meta">2 bd · 2 ba · 451 Tehama St #A · South of Market</div>
+    </a>
+    <a class="card" href="https://www.zillow.com/homedetails/San-Francisco-CA-94134/15173971_zpid/" target="_blank" rel="noopener"
+       data-rent="4988"
+       data-sqft=""
+       data-pps=""
+       data-beds="3.0"
+       data-baths="2.0"
+       data-posted=""
+       data-nh=""
+       data-out="0"
+       data-text="house for rent san francisco house">
+      <div class="row1"><span class="price">$4,988</span><span class="badge src">Zillow</span><span class="badge">house</span></div>
+      <div class="title">House for rent</div>
+      <div class="meta">3 bd · 2 ba · San Francisco</div>
+    </a>
+    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-furnished-br-ba-nopa-gem/7942128777.html" target="_blank" rel="noopener"
+       data-rent="5100"
+       data-sqft="1467"
+       data-pps="3.48"
        data-beds="2"
        data-baths="2.0"
-       data-posted="2026-06-11"
-       data-nh="Noe Valley"
+       data-posted="2026-06-19"
+       data-nh="Hayes Valley"
        data-out="0"
-       data-text="large, bright, remodeled 2bdr/2ba w/ city views duncan st near diamond heights duncan st near diamond heights · noe valley apartment">
-      <div class="row1"><span class="price">$5,600</span><span class="pps">$4.67/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">Large, Bright, Remodeled 2bdr/2Ba W/ City Views</div>
-      <div class="meta">2 bd · 2 ba · 1,200 ft² · Duncan St near Diamond Heights · Noe Valley · 2026-06-11</div>
+       data-text="furnished 2 br/2* ba nopa gem — cable, internet, &amp; solar included*** 541 divisadero st 541 divisadero st · hayes valley apartment">
+      <div class="row1"><span class="price">$5,100</span><span class="pps">$3.48/ft²</span><span class="badge src">Craigslist</span><span class="badge">apartment</span></div>
+      <div class="title">Furnished 2 BR/2* BA NOPA Gem — Cable, Internet, &amp; Solar Included***</div>
+      <div class="meta">2 bd · 2 ba · 1,467 ft² · 541 Divisadero St · Hayes Valley · 2026-06-19</div>
     </a>
     <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-580-el-camino-del-mar-san/7942118798.html" target="_blank" rel="noopener"
        data-rent="5630"
@@ -595,975 +246,177 @@
        data-nh="Seacliff"
        data-out="0"
        data-text="580 el camino del mar, san francisco, ca 94121 580 el camino del mar near el camino del mar / sea cliff avenue 580 el camino del mar near el camino del mar / sea cliff avenue · seacliff apartment">
-      <div class="row1"><span class="price">$5,630</span><span class="pps">$2.35/ft²</span><span class="badge">apartment</span></div>
+      <div class="row1"><span class="price">$5,630</span><span class="pps">$2.35/ft²</span><span class="badge src">Craigslist</span><span class="badge">apartment</span></div>
       <div class="title">580 El Camino Del Mar, San Francisco, CA 94121</div>
       <div class="meta">2 bd · 3 ba · 2,395 ft² · 580 El Camino Del Mar near El Camino Del Mar / Sea Cliff Avenue · Seacliff · 2026-06-19</div>
     </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-rented-top-floor/7941876423.html" target="_blank" rel="noopener"
-       data-rent="5700"
-       data-sqft=""
-       data-pps=""
-       data-beds="3"
-       data-baths="2.0"
-       data-posted="2026-06-18"
-       data-nh="Outer Richmond"
-       data-out="0"
-       data-text="rented! top floor remodeled flat. golden gate bridge views! ~ j.wavro geary boulevard near 27th avenue geary boulevard near 27th avenue · outer richmond flat">
-      <div class="row1"><span class="price">$5,700</span><span class="badge">flat</span></div>
-      <div class="title">RENTED! Top floor remodeled flat. Golden Gate Bridge views! ~ J.Wavro</div>
-      <div class="meta">3 bd · 2 ba · Geary Boulevard near 27th Avenue · Outer Richmond · 2026-06-18</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-spacious-updated-3br-2ba/7941542232.html" target="_blank" rel="noopener"
-       data-rent="5700"
-       data-sqft=""
-       data-pps=""
-       data-beds="3"
-       data-baths="2.0"
-       data-posted="2026-06-17"
-       data-nh="Lakeshore"
-       data-out="0"
-       data-text="spacious updated 3br/2ba townhome laundry in unit park merced 332 garces 332 garces · lakeshore apartment">
-      <div class="row1"><span class="price">$5,700</span><span class="badge">apartment</span></div>
-      <div class="title">Spacious Updated 3BR/2BA Townhome Laundry In Unit Park Merced</div>
-      <div class="meta">3 bd · 2 ba · 332 Garces · Lakeshore · 2026-06-17</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-bay-windows-brick/7941894614.html" target="_blank" rel="noopener"
-       data-rent="5800"
-       data-sqft="1390"
-       data-pps="4.17"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-18"
-       data-nh="Lone Mountain/USF"
-       data-out="0"
-       data-text="bay windows &amp; brick fireplace 2 br nopa 1731 grove st 1731 grove st · lone mountain/usf apartment">
-      <div class="row1"><span class="price">$5,800</span><span class="pps">$4.17/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">Bay Windows &amp; Brick Fireplace 2 BR NoPa</div>
-      <div class="meta">2 bd · 2 ba · 1,390 ft² · 1731 Grove St · Lone Mountain/USF · 2026-06-18</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-effortless-living-br-ev/7942102596.html" target="_blank" rel="noopener"
-       data-rent="5850"
-       data-sqft="777"
-       data-pps="7.53"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-19"
-       data-nh="Outer Mission"
-       data-out="0"
-       data-text="effortless living: 2 br w/ ev charging, bike storage &amp; more 99 ocean ave near alemany blvd 99 ocean ave near alemany blvd · outer mission apartment">
-      <div class="row1"><span class="price">$5,850</span><span class="pps">$7.53/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">Effortless Living: 2 BR w/ EV Charging, Bike Storage &amp; More</div>
-      <div class="meta">2 bd · 2 ba · 777 ft² · 99 Ocean Ave near Alemany Blvd · Outer Mission · 2026-06-19</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-full-floor-2bd-2ba-flat/7941415690.html" target="_blank" rel="noopener"
-       data-rent="5900"
-       data-sqft="1228"
-       data-pps="4.8"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-16"
-       data-nh="Mission"
-       data-out="0"
-       data-text="full-floor 2bd 2ba flat with large landscaped yard 2239 bryant st 2239 bryant st · mission flat">
-      <div class="row1"><span class="price">$5,900</span><span class="pps">$4.80/ft²</span><span class="badge">flat</span></div>
-      <div class="title">Full-Floor 2BD 2BA Flat with Large Landscaped Yard</div>
-      <div class="meta">2 bd · 2 ba · 1,228 ft² · 2239 Bryant St · Mission · 2026-06-16</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-charming-2br-bonus-room/7940847985.html" target="_blank" rel="noopener"
+    <a class="card" href="https://www.zillow.com/homedetails/663-15th-Ave-San-Francisco-CA-94118/345029125_zpid/" target="_blank" rel="noopener"
        data-rent="5900"
        data-sqft="1500"
        data-pps="3.93"
-       data-beds="2"
+       data-beds="3.0"
        data-baths="2.0"
-       data-posted="2026-06-13"
-       data-nh="Nob Hill"
-       data-out="0"
-       data-text="charming 2br + bonus room | prestigious pacific heights nob hill apartment">
-      <div class="row1"><span class="price">$5,900</span><span class="pps">$3.93/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">Charming 2BR + Bonus Room | Prestigious Pacific Heights</div>
-      <div class="meta">2 bd · 2 ba · 1,500 ft² · Nob Hill · 2026-06-13</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-spacious-loft-in-amazing/7942095300.html" target="_blank" rel="noopener"
-       data-rent="5950"
-       data-sqft="1261"
-       data-pps="4.72"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-19"
-       data-nh="Financial District/South Beach"
-       data-out="0"
-       data-text="spacious loft in amazing south beach location-prk/gym/concierge/ac 200 brannan near delancy 200 brannan near delancy · financial district/south beach loft">
-      <div class="row1"><span class="price">$5,950</span><span class="pps">$4.72/ft²</span><span class="badge">loft</span></div>
-      <div class="title">Spacious loft in amazing South Beach location-prk/gym/concierge/AC</div>
-      <div class="meta">2 bd · 2 ba · 1,261 ft² · 200 Brannan near Delancy · Financial District/South Beach · 2026-06-19</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-spacious-2br-office-in/7940423385.html" target="_blank" rel="noopener"
-       data-rent="5995"
-       data-sqft=""
-       data-pps=""
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-11"
-       data-nh="Inner Richmond"
-       data-out="0"
-       data-text="spacious 2br + office in inner richmond – backyard access, pets ok! 755 6th ave - 759-2 755 6th ave - 759-2 · inner richmond apartment">
-      <div class="row1"><span class="price">$5,995</span><span class="badge">apartment</span></div>
-      <div class="title">Spacious 2BR + Office in Inner Richmond – Backyard Access, Pets OK!</div>
-      <div class="meta">2 bd · 2 ba · 755 6th Ave - 759-2 · Inner Richmond · 2026-06-11</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-rented-ocean-view-home/7941875975.html" target="_blank" rel="noopener"
-       data-rent="6000"
-       data-sqft=""
-       data-pps=""
-       data-beds="3"
-       data-baths="2.0"
-       data-posted="2026-06-18"
+       data-posted=""
        data-nh="Outer Richmond"
        data-out="0"
-       data-text="rented! ocean view home! new washer &amp; dryer included!  ~ j.wavro great highway near balboa street great highway near balboa street · outer richmond apartment">
-      <div class="row1"><span class="price">$6,000</span><span class="badge">apartment</span></div>
-      <div class="title">RENTED! Ocean view home! New Washer &amp; Dryer included!  ~ J.Wavro</div>
-      <div class="meta">3 bd · 2 ba · Great Highway near Balboa Street · Outer Richmond · 2026-06-18</div>
+       data-text="663 15th ave 663 15th ave 663 15th ave · outer richmond apartment">
+      <div class="row1"><span class="price">$5,900</span><span class="pps">$3.93/ft²</span><span class="badge src">Zillow</span><span class="badge">apartment</span></div>
+      <div class="title">663 15th Ave</div>
+      <div class="meta">3 bd · 2 ba · 1,500 ft² · 663 15th Ave · Outer Richmond</div>
     </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-bedroom-bathroom-for-rent/7941681043.html" target="_blank" rel="noopener"
+    <a class="card" href="https://www.zillow.com/homedetails/2001-McAllister-St-APT-145-San-Francisco-CA-94118/80735157_zpid/" target="_blank" rel="noopener"
+       data-rent="5950"
+       data-sqft="984"
+       data-pps="6.05"
+       data-beds="2.0"
+       data-baths="2.0"
+       data-posted=""
+       data-nh="Lone Mountain/USF"
+       data-out="0"
+       data-text="2001 mcallister st apt 145 2001 mcallister st apt 145 2001 mcallister st apt 145 · lone mountain/usf apartment">
+      <div class="row1"><span class="price">$5,950</span><span class="pps">$6.05/ft²</span><span class="badge src">Zillow</span><span class="badge">apartment</span></div>
+      <div class="title">2001 McAllister St APT 145</div>
+      <div class="meta">2 bd · 2 ba · 984 ft² · 2001 McAllister St APT 145 · Lone Mountain/USF</div>
+    </a>
+    <a class="card" href="https://www.zillow.com/homedetails/2101-35th-Ave-San-Francisco-CA-94116/15117248_zpid/" target="_blank" rel="noopener"
        data-rent="6200"
+       data-sqft="1886"
+       data-pps="3.29"
+       data-beds="2.0"
+       data-baths="2.0"
+       data-posted=""
+       data-nh="Sunset/Parkside"
+       data-out="0"
+       data-text="2101 35th ave 2101 35th ave 2101 35th ave · sunset/parkside house">
+      <div class="row1"><span class="price">$6,200</span><span class="pps">$3.29/ft²</span><span class="badge src">Zillow</span><span class="badge">house</span></div>
+      <div class="title">2101 35th Ave</div>
+      <div class="meta">2 bd · 2 ba · 1,886 ft² · 2101 35th Ave · Sunset/Parkside</div>
+    </a>
+    <a class="card" href="https://www.zillow.com/homedetails/576-Shotwell-St-1-San-Francisco-CA-94110/15144813_zpid/" target="_blank" rel="noopener"
+       data-rent="7000"
+       data-sqft="1333"
+       data-pps="5.25"
+       data-beds="2.0"
+       data-baths="3.0"
+       data-posted=""
+       data-nh="Mission"
+       data-out="0"
+       data-text="576 shotwell st #1 576 shotwell st #1 576 shotwell st #1 · mission apartment">
+      <div class="row1"><span class="price">$7,000</span><span class="pps">$5.25/ft²</span><span class="badge src">Zillow</span><span class="badge">apartment</span></div>
+      <div class="title">576 Shotwell St #1</div>
+      <div class="meta">2 bd · 3 ba · 1,333 ft² · 576 Shotwell St #1 · Mission</div>
+    </a>
+    <a class="card" href="https://www.zillow.com/homedetails/San-Francisco-CA-94116/15117881_zpid/" target="_blank" rel="noopener"
+       data-rent="7500"
+       data-sqft="1606"
+       data-pps="4.67"
+       data-beds="3.0"
+       data-baths="2.0"
+       data-posted=""
+       data-nh=""
+       data-out="0"
+       data-text="house for rent san francisco house">
+      <div class="row1"><span class="price">$7,500</span><span class="pps">$4.67/ft²</span><span class="badge src">Zillow</span><span class="badge">house</span></div>
+      <div class="title">House for rent</div>
+      <div class="meta">3 bd · 2 ba · 1,606 ft² · San Francisco</div>
+    </a>
+    <a class="card" href="https://www.zillow.com/homedetails/San-Francisco-CA-94112/442344600_zpid/" target="_blank" rel="noopener"
+       data-rent="7750"
        data-sqft=""
        data-pps=""
-       data-beds="2"
+       data-beds="2.0"
        data-baths="2.0"
-       data-posted="2026-06-17"
+       data-posted=""
+       data-nh=""
+       data-out="0"
+       data-text="apartment for rent san francisco apartment">
+      <div class="row1"><span class="price">$7,750</span><span class="badge src">Zillow</span><span class="badge">apartment</span></div>
+      <div class="title">Apartment for rent</div>
+      <div class="meta">2 bd · 2 ba · San Francisco</div>
+    </a>
+    <a class="card" href="https://www.zillow.com/homedetails/191-Morningside-Dr-San-Francisco-CA-94132/15197748_zpid/" target="_blank" rel="noopener"
+       data-rent="8000"
+       data-sqft="2723"
+       data-pps="2.94"
+       data-beds="4.0"
+       data-baths="3.0"
+       data-posted=""
+       data-nh="Sunset/Parkside"
+       data-out="0"
+       data-text="191 morningside dr 191 morningside dr 191 morningside dr · sunset/parkside house">
+      <div class="row1"><span class="price">$8,000</span><span class="pps">$2.94/ft²</span><span class="badge src">Zillow</span><span class="badge">house</span></div>
+      <div class="title">191 Morningside Dr</div>
+      <div class="meta">4 bd · 3 ba · 2,723 ft² · 191 Morningside Dr · Sunset/Parkside</div>
+    </a>
+    <a class="card" href="https://www.zillow.com/homedetails/1070-Capp-St-APT-3-San-Francisco-CA-94110/96025213_zpid/" target="_blank" rel="noopener"
+       data-rent="8200"
+       data-sqft="2190"
+       data-pps="3.74"
+       data-beds="3.0"
+       data-baths="3.0"
+       data-posted=""
+       data-nh="Mission"
+       data-out="0"
+       data-text="1070 capp st apt 3 1070 capp st apt 3 1070 capp st apt 3 · mission apartment">
+      <div class="row1"><span class="price">$8,200</span><span class="pps">$3.74/ft²</span><span class="badge src">Zillow</span><span class="badge">apartment</span></div>
+      <div class="title">1070 Capp St APT 3</div>
+      <div class="meta">3 bd · 3 ba · 2,190 ft² · 1070 Capp St APT 3 · Mission</div>
+    </a>
+    <a class="card" href="https://www.zillow.com/homedetails/1053-Mississippi-St-San-Francisco-CA-94107/111921428_zpid/" target="_blank" rel="noopener"
+       data-rent="8350"
+       data-sqft="1625"
+       data-pps="5.14"
+       data-beds="3.0"
+       data-baths="2.0"
+       data-posted=""
        data-nh="Potrero Hill"
        data-out="0"
-       data-text="2 bedroom/2 bathroom for rent tennessee street near 18th street tennessee street near 18th street · potrero hill apartment">
-      <div class="row1"><span class="price">$6,200</span><span class="badge">apartment</span></div>
-      <div class="title">2 Bedroom/2 Bathroom For Rent</div>
-      <div class="meta">2 bd · 2 ba · Tennessee Street near 18th Street · Potrero Hill · 2026-06-17</div>
+       data-text="1053 mississippi st 1053 mississippi st 1053 mississippi st · potrero hill apartment">
+      <div class="row1"><span class="price">$8,350</span><span class="pps">$5.14/ft²</span><span class="badge src">Zillow</span><span class="badge">apartment</span></div>
+      <div class="title">1053 Mississippi St</div>
+      <div class="meta">3 bd · 2 ba · 1,625 ft² · 1053 Mississippi St · Potrero Hill</div>
     </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-stunning-bedrooms-baths/7941385814.html" target="_blank" rel="noopener"
-       data-rent="6200"
-       data-sqft=""
-       data-pps=""
-       data-beds="3"
-       data-baths="2.0"
-       data-posted="2026-06-16"
-       data-nh="Outer Richmond"
-       data-out="0"
-       data-text="stunning 3 bedrooms, 2 baths apartment in lake/richmond neighborhood california street near 17th avenue california street near 17th avenue · outer richmond apartment">
-      <div class="row1"><span class="price">$6,200</span><span class="badge">apartment</span></div>
-      <div class="title">Stunning 3 Bedrooms, 2 Baths Apartment in Lake/Richmond Neighborhood</div>
-      <div class="meta">3 bd · 2 ba · California Street near 17th Avenue · Outer Richmond · 2026-06-16</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-rented-amazing-nob-hill/7941340346.html" target="_blank" rel="noopener"
-       data-rent="6250"
-       data-sqft=""
-       data-pps=""
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-16"
-       data-nh="Nob Hill"
-       data-out="0"
-       data-text="rented! amazing nob hill condo! in-unit laundry and parking! ~ j.wavro sacramento street near hyde street sacramento street near hyde street · nob hill condo">
-      <div class="row1"><span class="price">$6,250</span><span class="badge">condo</span></div>
-      <div class="title">RENTED! Amazing Nob Hill condo! In-unit laundry and parking! ~ J.Wavro</div>
-      <div class="meta">2 bd · 2 ba · Sacramento Street near Hyde Street · Nob Hill · 2026-06-16</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-rented-bridgeview-2bd-2ba/7937556080.html" target="_blank" rel="noopener"
-       data-rent="6350"
-       data-sqft="1120"
-       data-pps="5.67"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-05-29"
-       data-nh="Financial District/South Beach"
-       data-out="0"
-       data-text="rented! bridgeview | 2bd/2ba | bay bridge view | rob orlando sfres beale near folsom beale near folsom · financial district/south beach apartment">
-      <div class="row1"><span class="price">$6,350</span><span class="pps">$5.67/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">RENTED! BRIDGEVIEW | 2BD/2BA | BAY BRIDGE VIEW | Rob Orlando SFRES</div>
-      <div class="meta">2 bd · 2 ba · 1,120 ft² · Beale near Folsom · Financial District/South Beach · 2026-05-29</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-for-rent/7941018105.html" target="_blank" rel="noopener"
-       data-rent="6500"
-       data-sqft=""
-       data-pps=""
-       data-beds="3"
-       data-baths="2.0"
-       data-posted="2026-06-14"
-       data-nh="Noe Valley"
-       data-out="0"
-       data-text="for rent 4324 26th st. 4324 26th st. · noe valley apartment">
-      <div class="row1"><span class="price">$6,500</span><span class="badge">apartment</span></div>
-      <div class="title">For Rent</div>
-      <div class="meta">3 bd · 2 ba · 4324 26th St. · Noe Valley · 2026-06-14</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-rented-the-brannan-2bd/7937554826.html" target="_blank" rel="noopener"
-       data-rent="6500"
-       data-sqft="1141"
-       data-pps="5.7"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-05-29"
-       data-nh="Financial District/South Beach"
-       data-out="0"
-       data-text="rented! the brannan | 2bd/2ba with views! | rob orlando sfres brannan near delancey brannan near delancey · financial district/south beach apartment">
-      <div class="row1"><span class="price">$6,500</span><span class="pps">$5.70/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">RENTED! THE BRANNAN | 2BD/2BA with VIEWS! | Rob Orlando SFRES</div>
-      <div class="meta">2 bd · 2 ba · 1,141 ft² · Brannan near Delancey · Financial District/South Beach · 2026-05-29</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-br-ft2-with-parking/7941698860.html" target="_blank" rel="noopener"
-       data-rent="6500"
-       data-sqft="1233"
-       data-pps="5.27"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-17"
-       data-nh="Mission Bay"
-       data-out="0"
-       data-text="$6500 / 2br - 1233ft2 with parking - beacon (soma / south beach) king street near 4th street king street near 4th street · mission bay apartment">
-      <div class="row1"><span class="price">$6,500</span><span class="pps">$5.27/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">$6500 / 2br - 1233ft2 with parking - BEACON (SOMA / south beach)</div>
-      <div class="meta">2 bd · 2 ba · 1,233 ft² · King Street near 4th Street · Mission Bay · 2026-06-17</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-stunning-3bd-3ba-home/7941262240.html" target="_blank" rel="noopener"
-       data-rent="6500"
-       data-sqft=""
-       data-pps=""
-       data-beds="3"
-       data-baths="3.0"
-       data-posted="2026-06-15"
-       data-nh="Bayview Hunters Point"
-       data-out="0"
-       data-text="stunning 3bd/3ba home with bay views! bayview hunters point apartment">
-      <div class="row1"><span class="price">$6,500</span><span class="badge">apartment</span></div>
-      <div class="title">Stunning 3bd/3ba Home with Bay Views!</div>
-      <div class="meta">3 bd · 3 ba · Bayview Hunters Point · 2026-06-15</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-2bd-corner-unit-with/7941843428.html" target="_blank" rel="noopener"
-       data-rent="6950"
-       data-sqft="1050"
-       data-pps="6.62"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-18"
-       data-nh="Mission Bay"
-       data-out="0"
-       data-text="2bd corner unit with water views at the desirable arterra in mission b 300 berry near 5th street 300 berry near 5th street · mission bay apartment">
-      <div class="row1"><span class="price">$6,950</span><span class="pps">$6.62/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">2BD corner unit with water views at the desirable Arterra in Mission B</div>
-      <div class="meta">2 bd · 2 ba · 1,050 ft² · 300 Berry near 5th Street · Mission Bay · 2026-06-18</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-4br-2ba-remodeled-full/7942095533.html" target="_blank" rel="noopener"
-       data-rent="6999"
-       data-sqft=""
-       data-pps=""
-       data-beds="4"
-       data-baths="2.0"
-       data-posted="2026-06-19"
-       data-nh="Bernal Heights"
-       data-out="0"
-       data-text="4br/2ba ►remodeled full-floor flat mission st. near highland av. mission st. near highland av. · bernal heights flat">
-      <div class="row1"><span class="price">$6,999</span><span class="badge">flat</span></div>
-      <div class="title">4br/2ba ►REMODELED FULL-FLOOR FLAT</div>
-      <div class="meta">4 bd · 2 ba · Mission St. near Highland Av. · Bernal Heights · 2026-06-19</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-available-now-two-bedroom/7941210499.html" target="_blank" rel="noopener"
-       data-rent="7000"
-       data-sqft="1000"
-       data-pps="7.0"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-15"
-       data-nh="Presidio"
-       data-out="0"
-       data-text="available now! two bedroom luxury flat in the presidio! 1801 wedemeyer street near 15th avenue 1801 wedemeyer street near 15th avenue · presidio flat">
-      <div class="row1"><span class="price">$7,000</span><span class="pps">$7.00/ft²</span><span class="badge">flat</span></div>
-      <div class="title">Available now! Two Bedroom Luxury flat in the Presidio!</div>
-      <div class="meta">2 bd · 2 ba · 1,000 ft² · 1801 Wedemeyer Street near 15th Avenue · Presidio · 2026-06-15</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-1440-sutter-street-102/7941988685.html" target="_blank" rel="noopener"
-       data-rent="7345"
-       data-sqft="915"
-       data-pps="8.03"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-19"
-       data-nh="Western Addition"
-       data-out="0"
-       data-text="1440 sutter street - 102 1440 sutter street 1440 sutter street · western addition apartment">
-      <div class="row1"><span class="price">$7,345</span><span class="pps">$8.03/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">1440 Sutter Street - 102</div>
-      <div class="meta">2 bd · 2 ba · 915 ft² · 1440 Sutter Street · Western Addition · 2026-06-19</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-1440-sutter-lovely-2x2-wd/7941848423.html" target="_blank" rel="noopener"
-       data-rent="7345"
-       data-sqft=""
-       data-pps=""
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-18"
-       data-nh="Western Addition"
-       data-out="0"
-       data-text="1440 sutter #102 - lovely 2x2 - wd in unit - great area - pets ok 1440 sutter 1440 sutter · western addition apartment">
-      <div class="row1"><span class="price">$7,345</span><span class="badge">apartment</span></div>
-      <div class="title">1440 Sutter #102 - Lovely 2x2 - WD in Unit - Great Area - Pets OK</div>
-      <div class="meta">2 bd · 2 ba · 1440 Sutter · Western Addition · 2026-06-18</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-3br-2ba2pkghome/7942080842.html" target="_blank" rel="noopener"
-       data-rent="7500"
-       data-sqft="1600"
-       data-pps="4.69"
-       data-beds="3"
-       data-baths="2.0"
-       data-posted="2026-06-19"
-       data-nh="Glen Park"
-       data-out="0"
-       data-text="3br/2ba,2pkg.home largekitchen+formaldinrm,dw,w&amp;d,deck,great yard!! 279 30 st. near church 279 30 st. near church · glen park apartment">
-      <div class="row1"><span class="price">$7,500</span><span class="pps">$4.69/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">3BR/2Ba,2Pkg.HOME LargeKitchen+FormalDinRm,DW,W&amp;D,Deck,Great Yard!!</div>
-      <div class="meta">3 bd · 2 ba · 1,600 ft² · 279 30 St. near Church · Glen Park · 2026-06-19</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-airy-2-top-floor/7941905213.html" target="_blank" rel="noopener"
-       data-rent="7500"
-       data-sqft="1586"
-       data-pps="4.73"
-       data-beds="3"
-       data-baths="2.0"
-       data-posted="2026-06-18"
-       data-nh="Outer Richmond"
-       data-out="0"
-       data-text="airy 3/2 top floor outer richmond apartment">
-      <div class="row1"><span class="price">$7,500</span><span class="pps">$4.73/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">Airy 3/2 Top floor</div>
-      <div class="meta">3 bd · 2 ba · 1,586 ft² · Outer Richmond · 2026-06-18</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-new-luxury-condo/7941385478.html" target="_blank" rel="noopener"
-       data-rent="7500"
-       data-sqft="1012"
-       data-pps="7.41"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-16"
-       data-nh="Noe Valley"
-       data-out="0"
-       data-text="new! luxury condo w/ expansive private deck &amp; 2 car parking *video* 1043 dolores street near 23rd street 1043 dolores street near 23rd street · noe valley condo">
-      <div class="row1"><span class="price">$7,500</span><span class="pps">$7.41/ft²</span><span class="badge">condo</span></div>
-      <div class="title">NEW! Luxury Condo w/ Expansive Private Deck &amp; 2 Car Parking *VIDEO*</div>
-      <div class="meta">2 bd · 2 ba · 1,012 ft² · 1043 Dolores Street near 23rd Street · Noe Valley · 2026-06-16</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-modern-spacious-home/7940884706.html" target="_blank" rel="noopener"
-       data-rent="7800"
-       data-sqft="1960"
-       data-pps="3.98"
-       data-beds="4"
-       data-baths="2.0"
-       data-posted="2026-06-14"
-       data-nh="Noe Valley"
-       data-out="0"
-       data-text="modern spacious home/double pkg/garden/hdwd flrs/steps to tower market noe valley apartment">
-      <div class="row1"><span class="price">$7,800</span><span class="pps">$3.98/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">Modern Spacious Home/Double Pkg/Garden/Hdwd Flrs/Steps to Tower Market</div>
-      <div class="meta">4 bd · 2 ba · 1,960 ft² · Noe Valley · 2026-06-14</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-25-classic-unit-boutique/7941496789.html" target="_blank" rel="noopener"
-       data-rent="7995"
-       data-sqft="1500"
-       data-pps="5.33"
-       data-beds="3"
-       data-baths="2.5"
-       data-posted="2026-06-17"
-       data-nh="Castro/Upper Market"
-       data-out="0"
-       data-text="3/2.5 classic 4-unit boutique building castro/upper market apartment">
-      <div class="row1"><span class="price">$7,995</span><span class="pps">$5.33/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">3/2.5 classic 4-unit boutique building</div>
-      <div class="meta">3 bd · 2.5 ba · 1,500 ft² · Castro/Upper Market · 2026-06-17</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-2br-2ba-condo-exposed/7940797405.html" target="_blank" rel="noopener"
-       data-rent="7995"
-       data-sqft="915"
-       data-pps="8.74"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-13"
-       data-nh="South of Market"
-       data-out="0"
-       data-text="2br/2ba condo w/ exposed concrete walls, high ceilings &amp; large windows 6 mint plaza - 304 6 mint plaza - 304 · south of market condo">
-      <div class="row1"><span class="price">$7,995</span><span class="pps">$8.74/ft²</span><span class="badge">condo</span></div>
-      <div class="title">2BR/2BA Condo w/ Exposed Concrete Walls, High Ceilings &amp; Large Windows</div>
-      <div class="meta">2 bd · 2 ba · 915 ft² · 6 Mint Plaza - 304 · South of Market · 2026-06-13</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-lumina-split-floorplan-bd/7941444173.html" target="_blank" rel="noopener"
-       data-rent="7995"
-       data-sqft="1189"
-       data-pps="6.72"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-16"
-       data-nh="Financial District/South Beach"
-       data-out="0"
-       data-text="lumina | split floorplan 2 bd / 2 ba with city views 201 folsom street near beale street 201 folsom street near beale street · financial district/south beach apartment">
-      <div class="row1"><span class="price">$7,995</span><span class="pps">$6.72/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">LUMINA | Split Floorplan 2 BD / 2 BA With City Views</div>
-      <div class="meta">2 bd · 2 ba · 1,189 ft² · 201 Folsom Street near Beale Street · Financial District/South Beach · 2026-06-16</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-beautiful-two-level/7942080083.html" target="_blank" rel="noopener"
-       data-rent="8000"
-       data-sqft="1129"
-       data-pps="7.09"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-19"
-       data-nh="Pacific Heights"
-       data-out="0"
-       data-text="beautiful two-level penthouse condo. 1805 fillmore street 1805 fillmore street · pacific heights condo">
-      <div class="row1"><span class="price">$8,000</span><span class="pps">$7.09/ft²</span><span class="badge">condo</span></div>
-      <div class="title">Beautiful two-level penthouse condo.</div>
-      <div class="meta">2 bd · 2 ba · 1,129 ft² · 1805 Fillmore Street · Pacific Heights · 2026-06-19</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-newly-updated-2-condo-in/7940014564.html" target="_blank" rel="noopener"
-       data-rent="8000"
-       data-sqft="1395"
-       data-pps="5.73"
-       data-beds="3"
-       data-baths="2.0"
-       data-posted="2026-06-10"
-       data-nh="Castro/Upper Market"
-       data-out="0"
-       data-text="newly updated 3/2 condo + in unit washer/dryer castro/upper market condo">
-      <div class="row1"><span class="price">$8,000</span><span class="pps">$5.73/ft²</span><span class="badge">condo</span></div>
-      <div class="title">Newly Updated 3/2 condo + In unit washer/dryer</div>
-      <div class="meta">3 bd · 2 ba · 1,395 ft² · Castro/Upper Market · 2026-06-10</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-renovated-2br-2ba-near/7941988449.html" target="_blank" rel="noopener"
-       data-rent="8100"
-       data-sqft="900"
-       data-pps="9.0"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-19"
-       data-nh="Haight Ashbury"
-       data-out="0"
-       data-text="renovated 2br/2ba near golden gate park + w/d! unit #1 1040 ashbury street 1040 ashbury street · haight ashbury apartment">
-      <div class="row1"><span class="price">$8,100</span><span class="pps">$9.00/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">Renovated 2BR/2BA Near Golden Gate Park + W/D! Unit #1</div>
-      <div class="meta">2 bd · 2 ba · 900 ft² · 1040 Ashbury Street · Haight Ashbury · 2026-06-19</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-1040-ashbury-gorgeous-2x2/7941701110.html" target="_blank" rel="noopener"
-       data-rent="8100"
-       data-sqft=""
-       data-pps=""
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-17"
-       data-nh="Haight Ashbury"
-       data-out="0"
-       data-text="1040 ashbury #1 - gorgeous 2x2 - wd in unit - updated &amp; private 1040 ashbury 1040 ashbury · haight ashbury apartment">
-      <div class="row1"><span class="price">$8,100</span><span class="badge">apartment</span></div>
-      <div class="title">1040 Ashbury #1 - Gorgeous 2x2 - WD in Unit - Updated &amp; Private</div>
-      <div class="meta">2 bd · 2 ba · 1040 Ashbury · Haight Ashbury · 2026-06-17</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-very-spacious-bright-2br/7941534109.html" target="_blank" rel="noopener"
-       data-rent="8100"
-       data-sqft=""
-       data-pps=""
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-17"
-       data-nh="Haight Ashbury"
-       data-out="0"
-       data-text="very spacious bright 2br/2ba laundry in unit close to buena vista park 1040 ashbury 1040 ashbury · haight ashbury apartment">
-      <div class="row1"><span class="price">$8,100</span><span class="badge">apartment</span></div>
-      <div class="title">Very Spacious Bright 2BR/2BA Laundry In Unit Close To Buena Vista Park</div>
-      <div class="meta">2 bd · 2 ba · 1040 Ashbury · Haight Ashbury · 2026-06-17</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-top-floor-level-condo-in/7941989371.html" target="_blank" rel="noopener"
-       data-rent="8200"
-       data-sqft="2000"
-       data-pps="4.1"
-       data-beds="3"
-       data-baths="3.0"
-       data-posted="2026-06-19"
-       data-nh="Mission"
-       data-out="0"
-       data-text="top floor 2 level condo in 4 unit building close to 24th &amp; mission bart mission condo">
-      <div class="row1"><span class="price">$8,200</span><span class="pps">$4.10/ft²</span><span class="badge">condo</span></div>
-      <div class="title">Top floor 2 level condo in 4 unit building close to 24th &amp; Mission BART</div>
-      <div class="meta">3 bd · 3 ba · 2,000 ft² · Mission · 2026-06-19</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-2-metropolitan-luxury/7940628948.html" target="_blank" rel="noopener"
-       data-rent="8250"
-       data-sqft="1408"
-       data-pps="5.86"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-12"
-       data-nh="Financial District/South Beach"
-       data-out="0"
-       data-text="2/2 metropolitan luxury financial district/south beach apartment">
-      <div class="row1"><span class="price">$8,250</span><span class="pps">$5.86/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">2/2 Metropolitan Luxury</div>
-      <div class="meta">2 bd · 2 ba · 1,408 ft² · Financial District/South Beach · 2026-06-12</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-completely-renovated-bed/7942078556.html" target="_blank" rel="noopener"
-       data-rent="8550"
-       data-sqft="1063"
-       data-pps="8.04"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-19"
-       data-nh="Pacific Heights"
-       data-out="0"
-       data-text="completely renovated 2 bed, 2 bath home. 2040 sutter street 2040 sutter street · pacific heights apartment">
-      <div class="row1"><span class="price">$8,550</span><span class="pps">$8.04/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">Completely renovated 2 bed, 2 bath home.</div>
-      <div class="meta">2 bd · 2 ba · 1,063 ft² · 2040 Sutter Street · Pacific Heights · 2026-06-19</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-2ba-floor-plan-upscale/7940835164.html" target="_blank" rel="noopener"
+    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-spacious-stunning-2bed/7942135301.html" target="_blank" rel="noopener"
        data-rent="8800"
-       data-sqft="1065"
-       data-pps="8.26"
+       data-sqft="1165"
+       data-pps="7.55"
        data-beds="2"
        data-baths="2.0"
-       data-posted="2026-06-13"
+       data-posted="2026-06-19"
        data-nh="Pacific Heights"
        data-out="0"
-       data-text="2ba floor plan! upscale, boutique building, private patio, in-unit w/d 3064 sacramento st 3064 sacramento st · pacific heights apartment">
-      <div class="row1"><span class="price">$8,800</span><span class="pps">$8.26/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">2ba Floor Plan! Upscale, Boutique Building, Private Patio, In-Unit W/D</div>
-      <div class="meta">2 bd · 2 ba · 1,065 ft² · 3064 Sacramento St · Pacific Heights · 2026-06-13</div>
+       data-text="spacious &amp; stunning 2bed/2ba in amazing location!! w/d in apt!!! 3064 sacramento 3064 sacramento · pacific heights apartment">
+      <div class="row1"><span class="price">$8,800</span><span class="pps">$7.55/ft²</span><span class="badge src">Craigslist</span><span class="badge">apartment</span></div>
+      <div class="title">Spacious &amp; Stunning 2Bed/2Ba in Amazing Location!! W/D in Apt!!!</div>
+      <div class="meta">2 bd · 2 ba · 1,165 ft² · 3064 Sacramento · Pacific Heights · 2026-06-19</div>
     </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-beautifully-remodeled-3br/7941425832.html" target="_blank" rel="noopener"
-       data-rent="8995"
-       data-sqft=""
-       data-pps=""
-       data-beds="3"
-       data-baths="2.0"
-       data-posted="2026-06-16"
-       data-nh="Hayes Valley"
-       data-out="0"
-       data-text="beautifully remodeled 3br/2ba in prime hayes valley 944 hayes st - 29 944 hayes st - 29 · hayes valley apartment">
-      <div class="row1"><span class="price">$8,995</span><span class="badge">apartment</span></div>
-      <div class="title">Beautifully Remodeled 3BR/2BA in Prime Hayes Valley</div>
-      <div class="meta">3 bd · 2 ba · 944 Hayes St - 29 · Hayes Valley · 2026-06-16</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-rare-to-find-oversized/7941810598.html" target="_blank" rel="noopener"
-       data-rent="8995"
-       data-sqft=""
-       data-pps=""
-       data-beds="4"
-       data-baths="2.0"
-       data-posted="2026-06-18"
-       data-nh="Castro/Upper Market"
-       data-out="0"
-       data-text="rare to find, oversized unit on castro st.! 584 castro st 584 castro st · castro/upper market apartment">
-      <div class="row1"><span class="price">$8,995</span><span class="badge">apartment</span></div>
-      <div class="title">Rare to find, oversized unit on Castro St.!</div>
-      <div class="meta">4 bd · 2 ba · 584 Castro St · Castro/Upper Market · 2026-06-18</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-2-victorian/7942038442.html" target="_blank" rel="noopener"
-       data-rent="8999"
-       data-sqft="1980"
-       data-pps="4.54"
-       data-beds="4"
-       data-baths="2.0"
-       data-posted="2026-06-19"
-       data-nh="Tenderloin"
-       data-out="0"
-       data-text="4/2 victorian tenderloin apartment">
-      <div class="row1"><span class="price">$8,999</span><span class="pps">$4.54/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">4/2 VICTORIAN</div>
-      <div class="meta">4 bd · 2 ba · 1,980 ft² · Tenderloin · 2026-06-19</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-4br-2ba-remodeled/7941887892.html" target="_blank" rel="noopener"
-       data-rent="8999"
-       data-sqft=""
-       data-pps=""
-       data-beds="4"
-       data-baths="2.0"
-       data-posted="2026-06-18"
-       data-nh="Hayes Valley"
-       data-out="0"
-       data-text="3-4br/2ba ►remodeled, victorian, full-floor flat! buchanan st. near hickory st. buchanan st. near hickory st. · hayes valley flat">
-      <div class="row1"><span class="price">$8,999</span><span class="badge">flat</span></div>
-      <div class="title">3-4br/2ba ►REMODELED, VICTORIAN, FULL-FLOOR FLAT!</div>
-      <div class="meta">4 bd · 2 ba · Buchanan St. near Hickory St. · Hayes Valley · 2026-06-18</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-upgraded-unfurnished-2nd/7941715284.html" target="_blank" rel="noopener"
-       data-rent="9000"
-       data-sqft="1890"
-       data-pps="4.76"
-       data-beds="3"
-       data-baths="2.0"
-       data-posted="2026-06-18"
-       data-nh="Marina"
-       data-out="0"
-       data-text="upgraded + unfurnished 2nd floor apt marina apartment">
-      <div class="row1"><span class="price">$9,000</span><span class="pps">$4.76/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">Upgraded + unfurnished 2nd floor APT</div>
-      <div class="meta">3 bd · 2 ba · 1,890 ft² · Marina · 2026-06-18</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-rare-3br-at-1635-gough-in/7941971192.html" target="_blank" rel="noopener"
-       data-rent="9295"
-       data-sqft="1115"
-       data-pps="8.34"
-       data-beds="3"
-       data-baths="2.0"
-       data-posted="2026-06-19"
-       data-nh="Western Addition"
-       data-out="0"
-       data-text="rare 3br at 1635 gough | in-unit laundry! unit a408 1635 gough street 1635 gough street · western addition apartment">
-      <div class="row1"><span class="price">$9,295</span><span class="pps">$8.34/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">Rare 3BR at 1635 Gough | In-Unit Laundry! Unit A408</div>
-      <div class="meta">3 bd · 2 ba · 1,115 ft² · 1635 Gough Street · Western Addition · 2026-06-19</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-updated-spacious-townhome/7941312438.html" target="_blank" rel="noopener"
-       data-rent="9295"
-       data-sqft=""
-       data-pps=""
-       data-beds="3"
-       data-baths="2.0"
-       data-posted="2026-06-16"
-       data-nh="Western Addition"
-       data-out="0"
-       data-text="updated spacious townhome style 3br/2ba laundry in unit 1635 gough 1635 gough · western addition apartment">
-      <div class="row1"><span class="price">$9,295</span><span class="badge">apartment</span></div>
-      <div class="title">Updated Spacious Townhome Style 3BR/2BA Laundry In Unit</div>
-      <div class="meta">3 bd · 2 ba · 1635 Gough · Western Addition · 2026-06-16</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-the-brannan-furnished-2br/7941444330.html" target="_blank" rel="noopener"
-       data-rent="9475"
-       data-sqft="1275"
-       data-pps="7.43"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-16"
+    <a class="card" href="https://www.zillow.com/homedetails/188-Minna-St-APT-30B-San-Francisco-CA-94105/80746495_zpid/" target="_blank" rel="noopener"
+       data-rent="9900"
+       data-sqft="1742"
+       data-pps="5.68"
+       data-beds="2.0"
+       data-baths="3.0"
+       data-posted=""
        data-nh="Financial District/South Beach"
        data-out="0"
-       data-text="the brannan | furnished 2br/2ba penthouse with bay views | mid august 219 brannan street near delancey street 219 brannan street near delancey street · financial district/south beach apartment">
-      <div class="row1"><span class="price">$9,475</span><span class="pps">$7.43/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">The Brannan | Furnished 2BR/2BA Penthouse With Bay Views | Mid August</div>
-      <div class="meta">2 bd · 2 ba · 1,275 ft² · 219 Brannan Street near Delancey Street · Financial District/South Beach · 2026-06-16</div>
+       data-text="188 minna st apt 30b 188 minna st apt 30b 188 minna st apt 30b · financial district/south beach apartment">
+      <div class="row1"><span class="price">$9,900</span><span class="pps">$5.68/ft²</span><span class="badge src">Zillow</span><span class="badge">apartment</span></div>
+      <div class="title">188 Minna St APT 30B</div>
+      <div class="meta">2 bd · 3 ba · 1,742 ft² · 188 Minna St APT 30B · Financial District/South Beach</div>
     </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-tmlp-12-mo-spacious/7942056812.html" target="_blank" rel="noopener"
-       data-rent="9549"
-       data-sqft="1329"
-       data-pps="7.19"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-19"
-       data-nh="Hayes Valley"
-       data-out="0"
-       data-text="tmlp 12-mo. | spacious kitchens, abundant storage and closet space 200 buchanan st near buchanan and haight 200 buchanan st near buchanan and haight · hayes valley apartment">
-      <div class="row1"><span class="price">$9,549</span><span class="pps">$7.19/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">TMLP 12-mo. | Spacious Kitchens, Abundant Storage and Closet Space</div>
-      <div class="meta">2 bd · 2 ba · 1,329 ft² · 200 Buchanan St near Buchanan and Haight · Hayes Valley · 2026-06-19</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-prime-three-level-home/7941116849.html" target="_blank" rel="noopener"
-       data-rent="9800"
-       data-sqft=""
-       data-pps=""
-       data-beds="5"
-       data-baths="3.5"
-       data-posted="2026-06-15"
-       data-nh="Castro/Upper Market"
-       data-out="0"
-       data-text="prime three level home castro street near liberty castro street near liberty · castro/upper market apartment">
-      <div class="row1"><span class="price">$9,800</span><span class="badge">apartment</span></div>
-      <div class="title">Prime three level home</div>
-      <div class="meta">5 bd · 3.5 ba · Castro Street near Liberty · Castro/Upper Market · 2026-06-15</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-cow-hollow-furnished/7937715550.html" target="_blank" rel="noopener"
-       data-rent="9875"
-       data-sqft="1455"
-       data-pps="6.79"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-05-30"
-       data-nh="Marina"
-       data-out="0"
-       data-text="cow hollow furnished condo, laundry, parking marina condo">
-      <div class="row1"><span class="price">$9,875</span><span class="pps">$6.79/ft²</span><span class="badge">condo</span></div>
-      <div class="title">Cow Hollow furnished condo, laundry, parking</div>
-      <div class="meta">2 bd · 2 ba · 1,455 ft² · Marina · 2026-05-30</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-rented-st-regis-lux-2bd/7937554765.html" target="_blank" rel="noopener"
-       data-rent="9975"
-       data-sqft="1792"
-       data-pps="5.57"
-       data-beds="2"
-       data-baths="2.5"
-       data-posted="2026-05-29"
-       data-nh="Financial District/South Beach"
-       data-out="0"
-       data-text="rented! st. regis | lux 2bd/2.5ba | rob orlando sfres minna near 3rd minna near 3rd · financial district/south beach apartment">
-      <div class="row1"><span class="price">$9,975</span><span class="pps">$5.57/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">RENTED! ST. REGIS | LUX 2BD/2.5BA | Rob Orlando SFRES</div>
-      <div class="meta">2 bd · 2.5 ba · 1,792 ft² · Minna near 3rd · Financial District/South Beach · 2026-05-29</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-id1694-russian-hill/7941799617.html" target="_blank" rel="noopener"
-       data-rent="9995"
-       data-sqft=""
-       data-pps=""
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-18"
-       data-nh="Nob Hill"
-       data-out="0"
-       data-text="id#1694: russian hill updated 2br/2ba condo in exclusive doorman build green near jones green near jones · nob hill condo">
-      <div class="row1"><span class="price">$9,995</span><span class="badge">condo</span></div>
-      <div class="title">ID#1694: Russian Hill Updated 2BR/2BA Condo in Exclusive Doorman Build</div>
-      <div class="meta">2 bd · 2 ba · Green near Jones · Nob Hill · 2026-06-18</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-pacific-heights-condo/7940644158.html" target="_blank" rel="noopener"
-       data-rent="9995"
-       data-sqft=""
-       data-pps=""
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-12"
-       data-nh="Pacific Heights"
-       data-out="0"
-       data-text="pacific heights condo with rooftop pool, doorman, parking &amp; utilities 2200 pacific ave - 7d 2200 pacific ave - 7d · pacific heights condo">
-      <div class="row1"><span class="price">$9,995</span><span class="badge">condo</span></div>
-      <div class="title">Pacific Heights Condo with Rooftop Pool, Doorman, Parking &amp; Utilities</div>
-      <div class="meta">2 bd · 2 ba · 2200 Pacific Ave - 7D · Pacific Heights · 2026-06-12</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-6br-2ba-remodeled/7941797287.html" target="_blank" rel="noopener"
-       data-rent="10799"
-       data-sqft=""
-       data-pps=""
-       data-beds="6"
-       data-baths="2.0"
-       data-posted="2026-06-18"
-       data-nh="Mission"
-       data-out="0"
-       data-text="6br/2ba ►remodeled, victorian, upper, full-floor flat! shotwell st. near 18th st. shotwell st. near 18th st. · mission flat">
-      <div class="row1"><span class="price">$10,799</span><span class="badge">flat</span></div>
-      <div class="title">6br/2ba ►REMODELED, VICTORIAN, UPPER, FULL-FLOOR FLAT!</div>
-      <div class="meta">6 bd · 2 ba · Shotwell St. near 18th St. · Mission · 2026-06-18</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-four-seasons-bed-25-bath/7941872694.html" target="_blank" rel="noopener"
-       data-rent="11000"
-       data-sqft=""
-       data-pps=""
-       data-beds="2"
-       data-baths="2.5"
-       data-posted="2026-06-18"
-       data-nh="Financial District/South Beach"
-       data-out="0"
-       data-text="four seasons -  2 bed 2.5 bath condo - financial district ~ j.wavro market street near 3rd street market street near 3rd street · financial district/south beach condo">
-      <div class="row1"><span class="price">$11,000</span><span class="badge">condo</span></div>
-      <div class="title">Four Seasons -  2 bed 2.5 bath Condo - Financial District ~ J.Wavro</div>
-      <div class="meta">2 bd · 2.5 ba · Market Street near 3rd Street · Financial District/South Beach · 2026-06-18</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-new-updated-single-family/7941382089.html" target="_blank" rel="noopener"
-       data-rent="11000"
-       data-sqft="1900"
-       data-pps="5.79"
-       data-beds="4"
-       data-baths="2.5"
-       data-posted="2026-06-16"
-       data-nh="West of Twin Peaks"
-       data-out="0"
-       data-text="new! updated single family home w/ garage, backyard &amp; storage *video* 80 castenada ave. near alton ave 80 castenada ave. near alton ave · west of twin peaks apartment">
-      <div class="row1"><span class="price">$11,000</span><span class="pps">$5.79/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">NEW! Updated Single Family Home w/ Garage, Backyard &amp; Storage *VIDEO*</div>
-      <div class="meta">4 bd · 2.5 ba · 1,900 ft² · 80 Castenada Ave. near Alton Ave · West of Twin Peaks · 2026-06-16</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-fabulous-single-family/7941876476.html" target="_blank" rel="noopener"
-       data-rent="11500"
-       data-sqft="2400"
-       data-pps="4.79"
-       data-beds="4"
-       data-baths="2.5"
-       data-posted="2026-06-18"
-       data-nh="Haight Ashbury"
-       data-out="0"
-       data-text="fabulous single family home 121 frederick near masonic 121 frederick near masonic · haight ashbury apartment">
-      <div class="row1"><span class="price">$11,500</span><span class="pps">$4.79/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">Fabulous Single Family Home</div>
-      <div class="meta">4 bd · 2.5 ba · 2,400 ft² · 121 Frederick near Masonic · Haight Ashbury · 2026-06-18</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-open-house-historic/7941210411.html" target="_blank" rel="noopener"
-       data-rent="11500"
-       data-sqft="1850"
-       data-pps="6.22"
-       data-beds="3"
-       data-baths="2.0"
-       data-posted="2026-06-15"
-       data-nh="Presidio"
-       data-out="0"
-       data-text="open house 6/17/26! historic duplex home at portola in the presidio! 751-a portola street near mcrae street 751-a portola street near mcrae street · presidio house">
-      <div class="row1"><span class="price">$11,500</span><span class="pps">$6.22/ft²</span><span class="badge">house</span></div>
-      <div class="title">Open House 6/17/26! Historic duplex home at Portola in the Presidio!</div>
-      <div class="meta">3 bd · 2 ba · 1,850 ft² · 751-A Portola Street near McRae Street · Presidio · 2026-06-15</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-incredible-4bd-2ba-in/7940612894.html" target="_blank" rel="noopener"
-       data-rent="11500"
-       data-sqft="1200"
-       data-pps="9.58"
-       data-beds="4"
-       data-baths="2.0"
-       data-posted="2026-06-12"
-       data-nh="Hayes Valley"
-       data-out="0"
-       data-text="incredible 4bd/2ba in amazing location!! spacious floor plan!! 243 waller street 243 waller street · hayes valley apartment">
-      <div class="row1"><span class="price">$11,500</span><span class="pps">$9.58/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">Incredible 4Bd/2Ba in AMAZING LOCATION!! Spacious Floor Plan!!</div>
-      <div class="meta">4 bd · 2 ba · 1,200 ft² · 243 Waller Street · Hayes Valley · 2026-06-12</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-gorgeous-3bed-2ba-d-in/7940615172.html" target="_blank" rel="noopener"
-       data-rent="11650"
-       data-sqft="1225"
-       data-pps="9.51"
-       data-beds="3"
-       data-baths="2.0"
-       data-posted="2026-06-12"
-       data-nh="North Beach"
-       data-out="0"
-       data-text="gorgeous 3bed/2ba!! w/d in apt!! shared garden! beautiful finishes! 572 chestnut street 572 chestnut street · north beach apartment">
-      <div class="row1"><span class="price">$11,650</span><span class="pps">$9.51/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">Gorgeous 3Bed/2Ba!! W/D in Apt!! Shared Garden! Beautiful Finishes!</div>
-      <div class="meta">3 bd · 2 ba · 1,225 ft² · 572 Chestnut Street · North Beach · 2026-06-12</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-open-sat-pm-home-in/7942059559.html" target="_blank" rel="noopener"
-       data-rent="11995"
-       data-sqft=""
-       data-pps=""
-       data-beds="4"
-       data-baths="2.5"
-       data-posted="2026-06-19"
-       data-nh="Mission"
-       data-out="0"
-       data-text="open sat 4:30-5:00pm home in bernal heights (28 montcalm street) mission apartment">
-      <div class="row1"><span class="price">$11,995</span><span class="badge">apartment</span></div>
-      <div class="title">OPEN SAT 4:30-5:00pm Home in Bernal Heights (28 Montcalm Street)</div>
-      <div class="meta">4 bd · 2.5 ba · Mission · 2026-06-19</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-new-renovated-single/7941450750.html" target="_blank" rel="noopener"
+    <a class="card" href="https://www.zillow.com/homedetails/845-14th-St-San-Francisco-CA-94114/249664923_zpid/" target="_blank" rel="noopener"
        data-rent="12000"
-       data-sqft="1900"
-       data-pps="6.32"
-       data-beds="4"
-       data-baths="3.5"
-       data-posted="2026-06-16"
-       data-nh="Outer Richmond"
-       data-out="0"
-       data-text="new! renovated single family home w/ smart features &amp; ev charger *vid* 814 41st ave near cabrillo st 814 41st ave near cabrillo st · outer richmond apartment">
-      <div class="row1"><span class="price">$12,000</span><span class="pps">$6.32/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">NEW! Renovated Single Family Home w/ Smart Features &amp; EV Charger *VID*</div>
-      <div class="meta">4 bd · 3.5 ba · 1,900 ft² · 814 41st Ave near Cabrillo St · Outer Richmond · 2026-06-16</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-amazing-updated-penthouse/7941312628.html" target="_blank" rel="noopener"
-       data-rent="12225"
-       data-sqft=""
-       data-pps=""
-       data-beds="2"
+       data-sqft="1885"
+       data-pps="6.37"
+       data-beds="3.0"
        data-baths="2.0"
-       data-posted="2026-06-16"
-       data-nh="Russian Hill"
+       data-posted=""
+       data-nh="Castro/Upper Market"
        data-out="0"
-       data-text="amazing updated penthouse private deck! 2br/2ba laundry in unit 1735 van ness 1735 van ness · russian hill apartment">
-      <div class="row1"><span class="price">$12,225</span><span class="badge">apartment</span></div>
-      <div class="title">Amazing Updated Penthouse Private Deck! 2BR/2BA Laundry In Unit</div>
-      <div class="meta">2 bd · 2 ba · 1735 Van Ness · Russian Hill · 2026-06-16</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-rented-st-regis/7937554696.html" target="_blank" rel="noopener"
-       data-rent="12500"
-       data-sqft="2027"
-       data-pps="6.17"
-       data-beds="3"
-       data-baths="3.0"
-       data-posted="2026-05-29"
-       data-nh="Financial District/South Beach"
-       data-out="0"
-       data-text="rented! st. regis residences | stunning 3bd/3ba | rob orlando sfres 188 minna near 3rd 188 minna near 3rd · financial district/south beach apartment">
-      <div class="row1"><span class="price">$12,500</span><span class="pps">$6.17/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">RENTED! ST. REGIS RESIDENCES | STUNNING 3BD/3BA | Rob Orlando SFRES</div>
-      <div class="meta">3 bd · 3 ba · 2,027 ft² · 188 Minna near 3rd · Financial District/South Beach · 2026-05-29</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-remodeled-4bd-3ba-flat/7941382197.html" target="_blank" rel="noopener"
-       data-rent="12500"
-       data-sqft=""
-       data-pps=""
-       data-beds="4"
-       data-baths="3.0"
-       data-posted="2026-06-16"
-       data-nh="Lone Mountain/USF"
-       data-out="0"
-       data-text="remodeled 4bd/3ba flat w/ hwd, in unit lndry, balcony &amp; pkg. available 716 masonic near hayes 716 masonic near hayes · lone mountain/usf flat">
-      <div class="row1"><span class="price">$12,500</span><span class="badge">flat</span></div>
-      <div class="title">Remodeled 4BD/3BA Flat w/ Hwd, In Unit Lndry, Balcony &amp; Pkg. Available</div>
-      <div class="meta">4 bd · 3 ba · 716 Masonic near Hayes · Lone Mountain/USF · 2026-06-16</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-newer-top-floor-multi/7939722105.html" target="_blank" rel="noopener"
-       data-rent="12500"
-       data-sqft="2016"
-       data-pps="6.2"
-       data-beds="3"
-       data-baths="2.5"
-       data-posted="2026-06-08"
-       data-nh="Mission"
-       data-out="0"
-       data-text="newer, top-floor multi-level luxury 3-bed 2.5-bath unit 2707 23rd street #3 near potrero ave 2707 23rd street #3 near potrero ave · mission apartment">
-      <div class="row1"><span class="price">$12,500</span><span class="pps">$6.20/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">Newer, top-floor multi-level luxury 3-bed 2.5-bath unit</div>
-      <div class="meta">3 bd · 2.5 ba · 2,016 ft² · 2707 23rd Street #3 near Potrero Ave · Mission · 2026-06-08</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-elegant-flat-sq-ft-on/7941377981.html" target="_blank" rel="noopener"
-       data-rent="12550"
-       data-sqft="6000"
-       data-pps="2.09"
-       data-beds="2"
-       data-baths="2.0"
-       data-posted="2026-06-16"
-       data-nh="Japantown"
-       data-out="0"
-       data-text="elegant flat: 3000 - 6000 sq ft on 2 floors w/ gg bridge &amp; bay view japantown flat">
-      <div class="row1"><span class="price">$12,550</span><span class="pps">$2.09/ft²</span><span class="badge">flat</span></div>
-      <div class="title">Elegant Flat: 3000 - 6000 sq ft on 2 floors w/ GG Bridge &amp; Bay View</div>
-      <div class="meta">2 bd · 2 ba · 6,000 ft² · Japantown · 2026-06-16</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-1935-jefferson-st-owner/7942000261.html" target="_blank" rel="noopener"
-       data-rent="12700"
-       data-sqft="1156"
-       data-pps="10.99"
-       data-beds="3"
-       data-baths="2.0"
-       data-posted="2026-06-19"
-       data-nh="Marina"
-       data-out="0"
-       data-text="1935 jefferson st owner lp - adu-2 1935 jefferson st 1935 jefferson st · marina apartment">
-      <div class="row1"><span class="price">$12,700</span><span class="pps">$10.99/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">1935 Jefferson St Owner LP - ADU-2</div>
-      <div class="meta">3 bd · 2 ba · 1,156 ft² · 1935 Jefferson St · Marina · 2026-06-19</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-1935-jefferson-gorgeous/7941803622.html" target="_blank" rel="noopener"
-       data-rent="12700"
-       data-sqft=""
-       data-pps=""
-       data-beds="3"
-       data-baths="2.0"
-       data-posted="2026-06-18"
-       data-nh="Marina"
-       data-out="0"
-       data-text="1935 jefferson #2 - gorgeous 3x2 - brand new - near ocean - wd in unit 1935 jefferson 1935 jefferson · marina apartment">
-      <div class="row1"><span class="price">$12,700</span><span class="badge">apartment</span></div>
-      <div class="title">1935 Jefferson #2 - Gorgeous 3x2 - Brand New - Near Ocean - WD in Unit</div>
-      <div class="meta">3 bd · 2 ba · 1935 Jefferson · Marina · 2026-06-18</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-remodeled-top-floor-5bd/7941388029.html" target="_blank" rel="noopener"
-       data-rent="13500"
-       data-sqft=""
-       data-pps=""
-       data-beds="5"
-       data-baths="3.0"
-       data-posted="2026-06-16"
-       data-nh="Lone Mountain/USF"
-       data-out="0"
-       data-text="remodeled top floor 5bd/3ba top floor 5bd/3ba flat w/ w/d, deck &amp; pkg. 718 masonic near hayes 718 masonic near hayes · lone mountain/usf flat">
-      <div class="row1"><span class="price">$13,500</span><span class="badge">flat</span></div>
-      <div class="title">Remodeled Top Floor 5BD/3BA Top Floor 5BD/3BA Flat w/ W/D, Deck &amp; Pkg.</div>
-      <div class="meta">5 bd · 3 ba · 718 Masonic near Hayes · Lone Mountain/USF · 2026-06-16</div>
+       data-text="845 14th st 845 14th st 845 14th st · castro/upper market apartment">
+      <div class="row1"><span class="price">$12,000</span><span class="pps">$6.37/ft²</span><span class="badge src">Zillow</span><span class="badge">apartment</span></div>
+      <div class="title">845 14th St</div>
+      <div class="meta">3 bd · 2 ba · 1,885 ft² · 845 14th St · Castro/Upper Market</div>
     </a>
     <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-hayes-valley-home/7942123455.html" target="_blank" rel="noopener"
        data-rent="14500"
@@ -1575,7 +428,7 @@
        data-nh="Hayes Valley"
        data-out="0"
        data-text="hayes valley home - 4 bedrooms 3 baths 202 laguna street near page 202 laguna street near page · hayes valley apartment">
-      <div class="row1"><span class="price">$14,500</span><span class="pps">$6.04/ft²</span><span class="badge">apartment</span></div>
+      <div class="row1"><span class="price">$14,500</span><span class="pps">$6.04/ft²</span><span class="badge src">Craigslist</span><span class="badge">apartment</span></div>
       <div class="title">Hayes Valley home - 4 bedrooms 3 baths</div>
       <div class="meta">4 bd · 3 ba · 2,400 ft² · 202 Laguna street near Page · Hayes Valley · 2026-06-19</div>
     </a>
@@ -1589,7 +442,7 @@
        data-nh="Nob Hill"
        data-out="0"
        data-text="gorgeous 4b3b top floor flat with washer and dryer in the unit taylor street near washington street taylor street near washington street · nob hill flat">
-      <div class="row1"><span class="price">$15,000</span><span class="pps">$6.82/ft²</span><span class="badge">flat</span></div>
+      <div class="row1"><span class="price">$15,000</span><span class="pps">$6.82/ft²</span><span class="badge src">Craigslist</span><span class="badge">flat</span></div>
       <div class="title">Gorgeous 4b3b top floor flat with washer and dryer in the unit</div>
       <div class="meta">4 bd · 3 ba · 2,200 ft² · Taylor Street near Washington Street · Nob Hill · 2026-06-19</div>
     </a>
@@ -1603,205 +456,51 @@
        data-nh="Russian Hill"
        data-out="0"
        data-text="russian hill view, top floor remodeled 2br/2ba 1818 taylor street near union 1818 taylor street near union · russian hill apartment">
-      <div class="row1"><span class="price">$15,000</span><span class="badge">apartment</span></div>
+      <div class="row1"><span class="price">$15,000</span><span class="badge src">Craigslist</span><span class="badge src">Zillow</span><span class="badge">apartment</span></div>
       <div class="title">Russian Hill View, Top Floor Remodeled 2BR/2BA</div>
       <div class="meta">2 bd · 2 ba · 1818 Taylor Street near Union · Russian Hill · 2026-06-19</div>
     </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-contemporary-single/7941970223.html" target="_blank" rel="noopener"
-       data-rent="15450"
-       data-sqft="2175"
-       data-pps="7.1"
-       data-beds="4"
-       data-baths="2.5"
-       data-posted="2026-06-19"
-       data-nh="Mission"
+    <a class="card" href="https://www.zillow.com/homedetails/941-Greenwich-St-939-San-Francisco-CA-94133/463367361_zpid/" target="_blank" rel="noopener"
+       data-rent="16500"
+       data-sqft="2100"
+       data-pps="7.86"
+       data-beds="4.0"
+       data-baths="3.0"
+       data-posted=""
+       data-nh="Russian Hill"
        data-out="0"
-       data-text="contemporary single family view home in bernal heights 137 elsie st 137 elsie st · mission apartment">
-      <div class="row1"><span class="price">$15,450</span><span class="pps">$7.10/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">Contemporary single family view home in Bernal Heights</div>
-      <div class="meta">4 bd · 2.5 ba · 2,175 ft² · 137 Elsie St · Mission · 2026-06-19</div>
+       data-text="941 greenwich st #939 941 greenwich st #939 941 greenwich st #939 · russian hill apartment">
+      <div class="row1"><span class="price">$16,500</span><span class="pps">$7.86/ft²</span><span class="badge src">Zillow</span><span class="badge">apartment</span></div>
+      <div class="title">941 Greenwich St #939</div>
+      <div class="meta">4 bd · 3 ba · 2,100 ft² · 941 Greenwich St #939 · Russian Hill</div>
     </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-large-gracious-bay-view/7940695841.html" target="_blank" rel="noopener"
-       data-rent="15550"
-       data-sqft="3300"
-       data-pps="4.71"
-       data-beds="3"
-       data-baths="2.0"
-       data-posted="2026-06-13"
-       data-nh="Japantown"
-       data-out="0"
-       data-text="large gracious bay view flat 3000 sq ft broadway near steiner broadway near steiner · japantown flat">
-      <div class="row1"><span class="price">$15,550</span><span class="pps">$4.71/ft²</span><span class="badge">flat</span></div>
-      <div class="title">Large gracious bay view flat 3000 sq ft</div>
-      <div class="meta">3 bd · 2 ba · 3,300 ft² · Broadway near Steiner · Japantown · 2026-06-13</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-big-beautiful-bright/7941424519.html" target="_blank" rel="noopener"
-       data-rent="15800"
-       data-sqft="3600"
-       data-pps="4.39"
-       data-beds="6"
-       data-baths="4.5"
-       data-posted="2026-06-16"
-       data-nh="Lone Mountain/USF"
-       data-out="0"
-       data-text="big beautiful bright spaciou 6br 4.5ba next to usf ewing terrace near masonic ewing terrace near masonic · lone mountain/usf apartment">
-      <div class="row1"><span class="price">$15,800</span><span class="pps">$4.39/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">Big Beautiful Bright Spaciou 6BR 4.5BA Next to USF</div>
-      <div class="meta">6 bd · 4.5 ba · 3,600 ft² · Ewing Terrace near Masonic · Lone Mountain/USF · 2026-06-16</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-updated-bedroom-victorian/7941873218.html" target="_blank" rel="noopener"
-       data-rent="17500"
+    <a class="card" href="https://www.zillow.com/homedetails/San-Francisco-CA-94117/442344532_zpid/" target="_blank" rel="noopener"
+       data-rent="16500"
        data-sqft=""
        data-pps=""
-       data-beds="4"
-       data-baths="3.5"
-       data-posted="2026-06-18"
-       data-nh="Hayes Valley"
+       data-beds="3.0"
+       data-baths="3.0"
+       data-posted=""
+       data-nh=""
        data-out="0"
-       data-text="updated 4 bedroom victorian home in the heart of nopa ~ j.wavro hayes street near broderick street hayes street near broderick street · hayes valley apartment">
-      <div class="row1"><span class="price">$17,500</span><span class="badge">apartment</span></div>
-      <div class="title">Updated 4 Bedroom Victorian Home in the Heart of NOPA ~ J.Wavro</div>
-      <div class="meta">4 bd · 3.5 ba · Hayes Street near Broderick Street · Hayes Valley · 2026-06-18</div>
+       data-text="townhouse for rent san francisco townhouse">
+      <div class="row1"><span class="price">$16,500</span><span class="badge src">Zillow</span><span class="badge">townhouse</span></div>
+      <div class="title">Townhouse for rent</div>
+      <div class="meta">3 bd · 3 ba · San Francisco</div>
     </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-stunning-home-for-rent/7941870544.html" target="_blank" rel="noopener"
-       data-rent="17500"
-       data-sqft=""
-       data-pps=""
-       data-beds="4"
-       data-baths="3.5"
-       data-posted="2026-06-18"
-       data-nh="Castro/Upper Market"
-       data-out="0"
-       data-text="stunning home for rent with indoor pool - two car parking ~ j.wavro eureka street near 20th street eureka street near 20th street · castro/upper market apartment">
-      <div class="row1"><span class="price">$17,500</span><span class="badge">apartment</span></div>
-      <div class="title">Stunning Home For Rent With Indoor Pool - Two Car Parking ~ J.Wavro</div>
-      <div class="meta">4 bd · 3.5 ba · Eureka Street near 20th Street · Castro/Upper Market · 2026-06-18</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-stunning-single-family/7941869739.html" target="_blank" rel="noopener"
-       data-rent="17500"
-       data-sqft=""
-       data-pps=""
-       data-beds="5"
+    <a class="card" href="https://www.zillow.com/homedetails/1236-1238-Pacific-Ave-San-Francisco-CA-94109/332850087_zpid/" target="_blank" rel="noopener"
+       data-rent="18000"
+       data-sqft="2742"
+       data-pps="6.56"
+       data-beds="5.0"
        data-baths="4.0"
-       data-posted="2026-06-18"
-       data-nh="West of Twin Peaks"
-       data-out="0"
-       data-text="stunning single family home for rent ~ j.wavro moncada way near paloma avenue moncada way near paloma avenue · west of twin peaks apartment">
-      <div class="row1"><span class="price">$17,500</span><span class="badge">apartment</span></div>
-      <div class="title">Stunning Single Family Home for Rent ~ J.Wavro</div>
-      <div class="meta">5 bd · 4 ba · Moncada Way near Paloma Avenue · West of Twin Peaks · 2026-06-18</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-extraordinary-level-house/7938614747.html" target="_blank" rel="noopener"
-       data-rent="17950"
-       data-sqft="2500"
-       data-pps="7.18"
-       data-beds="4"
-       data-baths="3.0"
-       data-posted="2026-06-03"
-       data-nh="Twin Peaks"
-       data-out="0"
-       data-text="extraordinary 3-level house, completely furnished, amazing views 180 st germain ave near glenbrook ave 180 st germain ave near glenbrook ave · twin peaks house">
-      <div class="row1"><span class="price">$17,950</span><span class="pps">$7.18/ft²</span><span class="badge">house</span></div>
-      <div class="title">Extraordinary 3-level house, completely furnished, amazing views</div>
-      <div class="meta">4 bd · 3 ba · 2,500 ft² · 180 St Germain Ave near Glenbrook Ave · Twin Peaks · 2026-06-03</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-leased-one-of-kind-level/7936260648.html" target="_blank" rel="noopener"
-       data-rent="19500"
-       data-sqft=""
-       data-pps=""
-       data-beds="3"
-       data-baths="2.0"
-       data-posted="2026-05-23"
-       data-nh="Presidio"
-       data-out="0"
-       data-text="*leased* one-of-a-kind, 2-level furnished penthouse. 3-bed 2-ba. views 3135 pacific ave #6 near lyon street 3135 pacific ave #6 near lyon street · presidio apartment">
-      <div class="row1"><span class="price">$19,500</span><span class="badge">apartment</span></div>
-      <div class="title">*LEASED* One-of-a-kind, 2-level furnished penthouse. 3-Bed 2-ba. Views</div>
-      <div class="meta">3 bd · 2 ba · 3135 Pacific Ave #6 near Lyon Street · Presidio · 2026-05-23</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-1076-van-ness-avenue/7941247785.html" target="_blank" rel="noopener"
-       data-rent="19950"
-       data-sqft="3776"
-       data-pps="5.28"
-       data-beds="4"
-       data-baths="3.5"
-       data-posted="2026-06-15"
-       data-nh="Mission"
-       data-out="0"
-       data-text="1076 s van ness avenue | mission district | 4 bed · 3,776 sq ft 1076 s van ness avenue 1076 s van ness avenue · mission apartment">
-      <div class="row1"><span class="price">$19,950</span><span class="pps">$5.28/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">1076 S Van Ness Avenue | Mission District | 4 Bed · 3,776 Sq Ft</div>
-      <div class="meta">4 bd · 3.5 ba · 3,776 ft² · 1076 S Van Ness Avenue · Mission · 2026-06-15</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-1340-taylor-st/7942016459.html" target="_blank" rel="noopener"
-       data-rent="21420"
-       data-sqft="2110"
-       data-pps="10.15"
-       data-beds="4"
-       data-baths="3.0"
-       data-posted="2026-06-19"
+       data-posted=""
        data-nh="Nob Hill"
        data-out="0"
-       data-text="1340 taylor st - 1370-010 1340 taylor st 1340 taylor st · nob hill apartment">
-      <div class="row1"><span class="price">$21,420</span><span class="pps">$10.15/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">1340 Taylor St - 1370-010</div>
-      <div class="meta">4 bd · 3 ba · 2,110 ft² · 1340 Taylor St · Nob Hill · 2026-06-19</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-1370-taylor-10-penthouse/7941806094.html" target="_blank" rel="noopener"
-       data-rent="21420"
-       data-sqft=""
-       data-pps=""
-       data-beds="4"
-       data-baths="3.0"
-       data-posted="2026-06-18"
-       data-nh="Nob Hill"
-       data-out="0"
-       data-text="1370 taylor #10 - penthouse 4x3 - ocean views - top floor - wd in unit 1370 taylor 1370 taylor · nob hill apartment">
-      <div class="row1"><span class="price">$21,420</span><span class="badge">apartment</span></div>
-      <div class="title">1370 Taylor #10 - Penthouse 4x3 - Ocean Views - Top Floor - WD in Unit</div>
-      <div class="meta">4 bd · 3 ba · 1370 Taylor · Nob Hill · 2026-06-18</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-luxury-top-floor-super/7941310816.html" target="_blank" rel="noopener"
-       data-rent="21420"
-       data-sqft="2284"
-       data-pps="9.38"
-       data-beds="4"
-       data-baths="3.0"
-       data-posted="2026-06-16"
-       data-nh="Nob Hill"
-       data-out="0"
-       data-text="luxury top floor super spacious bay views! 4br/3ba laundry in unit 1370 taylor 1370 taylor · nob hill apartment">
-      <div class="row1"><span class="price">$21,420</span><span class="pps">$9.38/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">Luxury Top Floor Super Spacious Bay Views! 4BR/3BA Laundry In Unit</div>
-      <div class="meta">4 bd · 3 ba · 2,284 ft² · 1370 Taylor · Nob Hill · 2026-06-16</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-leased-unique-and/7935688672.html" target="_blank" rel="noopener"
-       data-rent="24950"
-       data-sqft="2800"
-       data-pps="8.91"
-       data-beds="4"
-       data-baths="3.0"
-       data-posted="2026-05-20"
-       data-nh="Pacific Heights"
-       data-out="0"
-       data-text="*leased* unique and spacious, 2-level top-floor apt with amazing views 2621 divisadero street #3 near broadway street 2621 divisadero street #3 near broadway street · pacific heights apartment">
-      <div class="row1"><span class="price">$24,950</span><span class="pps">$8.91/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">*LEASED* Unique and spacious, 2-level top-floor apt with amazing views</div>
-      <div class="meta">4 bd · 3 ba · 2,800 ft² · 2621 Divisadero Street #3 near Broadway Street · Pacific Heights · 2026-05-20</div>
-    </a>
-    <a class="card" href="https://sfbay.craigslist.org/sfc/apa/d/san-francisco-highend-home-with-yard/7935656036.html" target="_blank" rel="noopener"
-       data-rent="45000"
-       data-sqft="6358"
-       data-pps="7.08"
-       data-beds="6"
-       data-baths="5.0"
-       data-posted="2026-05-20"
-       data-nh="Marina"
-       data-out="0"
-       data-text="highend home with yard - coming soon! marina apartment">
-      <div class="row1"><span class="price">$45,000</span><span class="pps">$7.08/ft²</span><span class="badge">apartment</span></div>
-      <div class="title">Highend Home With Yard - Coming Soon!</div>
-      <div class="meta">6 bd · 5 ba · 6,358 ft² · Marina · 2026-05-20</div>
+       data-text="1236-1238 pacific ave 1236-1238 pacific ave 1236-1238 pacific ave · nob hill apartment">
+      <div class="row1"><span class="price">$18,000</span><span class="pps">$6.56/ft²</span><span class="badge src">Zillow</span><span class="badge">apartment</span></div>
+      <div class="title">1236-1238 Pacific Ave</div>
+      <div class="meta">5 bd · 4 ba · 2,742 ft² · 1236-1238 Pacific Ave · Nob Hill</div>
     </a>
   </div>
   <footer>Updates automatically as listings change.</footer>
