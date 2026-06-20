@@ -1,0 +1,9 @@
+{
+  "name": "sf-rentals-dashboard-functions",
+  "private": true,
+  "type": "module",
+  "description": "Netlify Functions for the SF-rentals dashboard intent inbox (User-intent track §6).",
+  "dependencies": {
+    "@netlify/blobs": ">=7"
+  }
+}

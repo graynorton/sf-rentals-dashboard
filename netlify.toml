@@ -1,0 +1,21 @@
+# Netlify config for the SF-rentals dashboard (User-intent track §6, U4).
+#
+# SINGLE-ORIGIN: Netlify deploys from the `sf-rentals-dashboard` GitHub repo — the
+# SAME repo the monitor's GitPagesPublisher pushes index.html into. The static site
+# is served as-is (no build step); this file only adds the Functions + intent inbox.
+# These files (netlify.toml, functions/, assets/) live in the repo ROOT alongside
+# the published index.html and are committed ONCE, by hand — the publisher only ever
+# rewrites index.html + .nojekyll, so it will not disturb them (verified U4).
+
+[build]
+  # No build: the dashboard is pre-rendered HTML pushed by the monitor.
+  command = ""
+  publish = "."
+
+[functions]
+  directory = "functions"
+  # modern Netlify functions runtime (ESM, Web Request/Response, Blobs in-context)
+  node_bundler = "esbuild"
+
+# Pretty API paths are declared per-function via `export const config = {path}`,
+# so no redirect rules are needed here.
