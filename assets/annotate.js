@@ -37,10 +37,12 @@
   // --- optimistic local view (localStorage) ------------------------------- //
   function loadLocal() {
     try {
-      return JSON.parse(global.localStorage.getItem(LS_KEY)) ||
-        { stars: {}, pairs: {}, intents: {} };
+      var v = JSON.parse(global.localStorage.getItem(LS_KEY)) ||
+        { stars: {}, pairs: {}, intents: {}, views: {} };
+      if (!v.views) v.views = {};   // back-fill for caches written before saved views
+      return v;
     } catch (e) {
-      return { stars: {}, pairs: {}, intents: {} };
+      return { stars: {}, pairs: {}, intents: {}, views: {} };
     }
   }
 
@@ -117,6 +119,29 @@
     return send({ id: intentId(), kind: "revoke", target: targetId, ts: nowIso() });
   }
 
+  // Saved views (named filter/sort/search combos). Optimistic: the local cache
+  // holds an upsert ({name,spec}) or a tombstone ({deleted:true}) so the saving
+  // device reflects the change instantly; the next publish reconciles.
+  function saveView(viewId, name, spec) {
+    var local = loadLocal();
+    local.views[viewId] = { name: name, spec: spec || {} };
+    saveLocal(local);
+    return send({ id: intentId(), kind: "view_save", view: viewId, name: name, spec: spec || {}, ts: nowIso() });
+  }
+
+  function deleteView(viewId) {
+    var local = loadLocal();
+    local.views[viewId] = { deleted: true };
+    saveLocal(local);
+    return send({ id: intentId(), kind: "view_delete", view: viewId, ts: nowIso() });
+  }
+
+  // The optimistic view overlay, keyed by view id (entries are {name,spec} or
+  // {deleted:true}). Render merges this over the authoritative USER_STATE.views.
+  function optimisticViews() {
+    return loadLocal().views;
+  }
+
   // --- optimistic read helpers (for render's hydration) ------------------- //
   function optimisticStars() {
     return Object.keys(loadLocal().stars);
@@ -134,6 +159,14 @@
     authStars.forEach(function (u) { delete local.stars[u]; });
     (authoritative.pairs || []).forEach(function (k) { delete local.pairs[k]; });
     (authoritative.intents || []).forEach(function (id) { delete local.intents[id]; });
+    // A saved-view upsert is reflected once its id appears authoritatively; a
+    // tombstone once its id is gone. Drop reflected optimistic entries.
+    var authViews = {};
+    (authoritative.views || []).forEach(function (id) { authViews[id] = true; });
+    Object.keys(local.views).forEach(function (id) {
+      var reflected = local.views[id].deleted ? !authViews[id] : !!authViews[id];
+      if (reflected) delete local.views[id];
+    });
     saveLocal(local);
     return local;
   }
@@ -144,8 +177,11 @@
     assertDistinct: assertDistinct,
     dismiss: dismiss,
     revoke: revoke,
+    saveView: saveView,
+    deleteView: deleteView,
     optimisticStars: optimisticStars,
     optimisticPairState: optimisticPairState,
+    optimisticViews: optimisticViews,
     reconcile: reconcile,
     _intentId: intentId,
   };

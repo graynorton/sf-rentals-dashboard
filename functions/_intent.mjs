@@ -21,7 +21,8 @@ export function secretOk(provided, expected) {
   return timingSafeEqual(a, b);
 }
 
-const KINDS = new Set(["star", "same", "distinct", "dismiss", "revoke"]);
+const KINDS = new Set(["star", "same", "distinct", "dismiss", "revoke",
+  "view_save", "view_delete"]);
 
 function isPair(x) {
   return Array.isArray(x) && x.length === 2 &&
@@ -44,6 +45,12 @@ export function validateIntent(intent) {
     if (!isPair(intent.pair)) return "dismiss: pair must be two distinct ids";
   } else if (intent.kind === "revoke") {
     if (typeof intent.target !== "string" || !intent.target) return "revoke: missing target";
+  } else if (intent.kind === "view_save") {
+    if (typeof intent.view !== "string" || !intent.view) return "view_save: missing view id";
+    if (typeof intent.name !== "string" || !intent.name) return "view_save: missing name";
+    if (!intent.spec || typeof intent.spec !== "object") return "view_save: spec must be an object";
+  } else if (intent.kind === "view_delete") {
+    if (typeof intent.view !== "string" || !intent.view) return "view_delete: missing view id";
   }
   return null;
 }
