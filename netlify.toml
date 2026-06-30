@@ -4,8 +4,10 @@
 # SAME repo the monitor's GitPagesPublisher pushes index.html into. The static site
 # is served as-is (no build step); this file only adds the Functions + intent inbox.
 # These files (netlify.toml, functions/, assets/) live in the repo ROOT alongside
-# the published index.html and are committed ONCE, by hand — the publisher only ever
-# rewrites index.html + .nojekyll, so it will not disturb them (verified U4).
+# the published index.html. Since #10 the GitPagesPublisher COPIES this scaffolding
+# into the dashboard repo on publish (its content is folded into the publish
+# signature, so an asset edit flips the sig and the normal gated push carries it) —
+# no more silent hand-copy drift. The source of truth is this `netlify/` dir.
 
 [build]
   # No build: the dashboard is pre-rendered HTML pushed by the monitor.
