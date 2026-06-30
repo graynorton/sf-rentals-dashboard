@@ -14,6 +14,16 @@
   command = ""
   publish = "."
 
+[build.environment]
+  # ANNOTATE_APP_SECRET is the PUBLIC, low-privilege write secret intentionally
+  # embedded in index.html (the client needs it to POST intents to /api/annotate);
+  # it is NOT a leaked credential. Without this, Netlify's secret scanner fails the
+  # build ('Secret env var "ANNOTATE_APP_SECRET"'s value detected ... in index.html').
+  # Pinned in code (not just a site env var) so the handling is explicit + matches
+  # cars. ANNOTATE_READ_SECRET (private drain secret) is never in the page and is
+  # deliberately NOT omitted.
+  SECRETS_SCAN_OMIT_KEYS = "ANNOTATE_APP_SECRET"
+
 [functions]
   directory = "functions"
   # modern Netlify functions runtime (ESM, Web Request/Response, Blobs in-context)
