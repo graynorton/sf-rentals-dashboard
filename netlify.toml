@@ -1,33 +1,22 @@
-# Netlify config for the SF-rentals dashboard (User-intent track §6, U4).
+# Netlify config for the TICKETS (StubHub watcher) dashboard — STATIC-ONLY.
 #
-# SINGLE-ORIGIN: Netlify deploys from the `sf-rentals-dashboard` GitHub repo — the
-# SAME repo the monitor's GitPagesPublisher pushes index.html into. The static site
-# is served as-is (no build step); this file only adds the Functions + intent inbox.
-# These files (netlify.toml, functions/, assets/) live in the repo ROOT alongside
-# the published index.html. Since #10 the GitPagesPublisher COPIES this scaffolding
-# into the dashboard repo on publish (its content is folded into the publish
-# signature, so an asset edit flips the sig and the normal gated push carries it) —
-# no more silent hand-copy drift. The source of truth is this `netlify/` dir.
+# Unlike the homes (../netlify.toml) and cars (../cars/netlify.toml) sites, the
+# tickets dashboard is PURELY STATIC: tickets has no stars / saved-views / triage,
+# so it ships NONE of the intent-inbox scaffolding those sites carry — no
+# `functions/` directory, no `@netlify/blobs` dependency, and no `ANNOTATE_*`
+# secrets (hence no `SECRETS_SCAN_OMIT_KEYS` dance — nothing secret is embedded in
+# the page). The run.py wires GitPagesPublisher with `include_shared_assets=False`
+# (spec §D5), so the publisher copies only this config into the dashboard repo, not
+# the shared annotate.js + Functions.
+#
+# Same single-origin shape as the other two: Netlify deploys from the tickets
+# dashboard GitHub repo — the SAME repo the tickets monitor's GitPagesPublisher
+# pushes index.html into. The static site is served as-is (no build step). This
+# per-domain config resolves from `netlify/tickets/` (run.py passes
+# assets_dir=netlify/tickets); its content is folded into the publish signature so
+# an edit here flips the sig and the normal gated push carries it.
 
 [build]
   # No build: the dashboard is pre-rendered HTML pushed by the monitor.
   command = ""
   publish = "."
-
-[build.environment]
-  # ANNOTATE_APP_SECRET is the PUBLIC, low-privilege write secret intentionally
-  # embedded in index.html (the client needs it to POST intents to /api/annotate);
-  # it is NOT a leaked credential. Without this, Netlify's secret scanner fails the
-  # build ('Secret env var "ANNOTATE_APP_SECRET"'s value detected ... in index.html').
-  # Pinned in code (not just a site env var) so the handling is explicit + matches
-  # cars. ANNOTATE_READ_SECRET (private drain secret) is never in the page and is
-  # deliberately NOT omitted.
-  SECRETS_SCAN_OMIT_KEYS = "ANNOTATE_APP_SECRET"
-
-[functions]
-  directory = "functions"
-  # modern Netlify functions runtime (ESM, Web Request/Response, Blobs in-context)
-  node_bundler = "esbuild"
-
-# Pretty API paths are declared per-function via `export const config = {path}`,
-# so no redirect rules are needed here.
